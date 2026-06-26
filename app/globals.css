@@ -37,11 +37,11 @@
     --accent-violet-rgb: 168 146 248; /* violet-300 */
     --accent-ember-rgb: 255 171 102; /* ember-300 */
 
-    /* Custom cursor (high-contrast on dark backgrounds) */
-    --cursor-dot: 255 255 255;
-    --cursor-ring: 168 146 248; /* violet-300 */
-    --cursor-glow: rgba(124, 92, 252, 0.55);
-    --cursor-contrast: rgba(0, 0, 0, 0.35);
+    /* Custom cursor — gold theme to match cursor.png */
+    --cursor-dot: 237 193 104;
+    --cursor-ring: 237 193 104;
+    --cursor-glow: rgba(237, 193, 104, 0.55);
+    --cursor-contrast: rgba(43, 10, 48, 0.5);
 
     color-scheme: dark;
   }

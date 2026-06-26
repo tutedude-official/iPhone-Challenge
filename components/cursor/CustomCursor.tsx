@@ -38,10 +38,10 @@ function rgbToHue(rgb: string): number | null {
   return h < 0 ? h + 360 : h;
 }
 
-// Where the pointer "tip" sits inside the hand image (ratio of its size).
-const HOTSPOT_X = 0.22;
-const HOTSPOT_Y = 0.1;
-const CURSOR_W = 60; // px
+// Tip sits at the upper-left corner of the arrow cursor image.
+const HOTSPOT_X = 0.08;
+const HOTSPOT_Y = 0.05;
+const CURSOR_W = 32; // px
 
 export default function CustomCursor() {
   const handRef = useRef<HTMLImageElement>(null);
@@ -153,13 +153,11 @@ export default function CustomCursor() {
         const bg = getComputedBg(elUnder);
         const hue = bg ? rgbToHue(bg) : null;
         if (hue !== null && hue >= 30 && hue <= 65) {
-          // Gold / amber background → violet dot
-          dot.style.backgroundColor = "#7C3AED";
-        } else if (hue !== null && hue >= 255 && hue <= 310) {
-          // Violet / purple background → gold dot
-          dot.style.backgroundColor = "#EAB308";
+          // Gold / amber background → use purple dot for contrast
+          dot.style.backgroundColor = "#3a0f33";
         } else {
-          dot.style.backgroundColor = "";
+          // Default → gold dot
+          dot.style.backgroundColor = "#edc168";
         }
       }
 
