@@ -134,7 +134,7 @@ export default function Hero() {
           className="mb-6 flex items-center gap-3"
         >
           <Image
-            src="/tutedude-logo.svg"
+            src="/tutedudelogo.png"
             alt="Tutedude"
             width={38}
             height={38}
@@ -197,7 +197,7 @@ export default function Hero() {
                 }}
               >
                 <Image
-                  src="/iphone-15-prize.png"
+                  src="/iphone-17-prize.webp"
                   alt=""
                   aria-hidden
                   width={914}

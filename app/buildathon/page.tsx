@@ -28,7 +28,11 @@ import {
   MapPin,
   Crown,
   Sparkles,
+  Zap,
+  Globe,
+  Star,
   ArrowRight,
+  Rocket,
 } from "lucide-react";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
 
@@ -42,37 +46,41 @@ const CARD =
 
 /* ---------------------------------------------------------------- content --- */
 const stats = [
-  { icon: Check, label: "100% Online" },
-  { icon: Trophy, label: "Win ₹10,000 in Cash" },
-  { icon: Gift, label: "Free Registration" },
-  { icon: Clock, label: "48–72 Hours of Intense Creation" },
-  { icon: Users, label: "Work in Teams of 3–5" },
+  { icon: Globe,   label: "100% Online" },
+  { icon: Trophy,  label: "Win ₹10,000 in Cash" },
+  { icon: Gift,    label: "Free Registration" },
+  { icon: Clock,   label: "48–72 Hour Sprint" },
+  { icon: Users,   label: "Teams of 3–5" },
 ];
 
 const projects = [
   {
-    tag: "Hackathon",
+    tag: "3D Hackathon",
     title: "Make a 3D Website",
     desc: "Build an immersive 3D web experience in a weekend and ship it live.",
     grad: "from-[#7c3aed] to-[#3b82f6]",
+    icon: Globe,
   },
   {
     tag: "Cider",
     title: "Design, Code & Ship an iOS App",
     desc: "Take an idea to the App Store in 30 days — design, build, and launch.",
     grad: "from-[#f59e0b] to-[#ef4444]",
+    icon: Zap,
   },
   {
     tag: "HackCraft",
     title: "Ship a Game Mod",
     desc: "Craft a playable mod from scratch and put it in players' hands.",
     grad: "from-[#10b981] to-[#06b6d4]",
+    icon: Star,
   },
   {
-    tag: "Putting the 'You' in CPU",
+    tag: "Low-level",
     title: "Build Something Low-level",
     desc: "Curious what really happens when you run a program? Build it and find out.",
     grad: "from-[#ec4899] to-[#8b5cf6]",
+    icon: Code2,
   },
 ];
 
@@ -124,8 +132,8 @@ const internship = [
 const reviews = [
   { name: "Hard Branots", role: "Student", grad: "from-[#7c3aed] to-[#db2777]" },
   { name: "Hely Branots", role: "Student", grad: "from-[#2563eb] to-[#06b6d4]" },
-  { name: "Anny Roy", role: "Student", grad: "from-[#f59e0b] to-[#ef4444]" },
-  { name: "Karan Mehta", role: "Student", grad: "from-[#10b981] to-[#4f46e5]" },
+  { name: "Anny Roy",     role: "Student", grad: "from-[#f59e0b] to-[#ef4444]" },
+  { name: "Karan Mehta",  role: "Student", grad: "from-[#10b981] to-[#4f46e5]" },
 ];
 
 const faqs = [
@@ -151,27 +159,19 @@ const faqs = [
 function StatChip({ icon: Icon, label }: { icon: typeof Check; label: string }) {
   return (
     <RevealItem className="group flex flex-col items-center gap-3 text-center">
-      <span className="flex h-14 w-14 items-center justify-center rounded-2xl border border-[#edc168]/30 bg-[#edc168]/10 text-[#edc168] transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-110">
+      <span className="flex h-14 w-14 items-center justify-center rounded-2xl border border-[#edc168]/30 bg-[#edc168]/10 text-[#edc168] transition-all duration-300 group-hover:-translate-y-1.5 group-hover:scale-110 group-hover:border-[#edc168]/60 group-hover:bg-[#edc168]/20">
         <Icon className="h-6 w-6" />
       </span>
-      <span className="max-w-[10rem] text-sm font-semibold leading-snug text-white/85">
+      <span className="max-w-[9rem] text-sm font-semibold leading-snug text-white/80 group-hover:text-white transition-colors">
         {label}
       </span>
     </RevealItem>
   );
 }
 
-function PhotoCard({
-  grad,
-  children,
-}: {
-  grad: string;
-  children?: React.ReactNode;
-}) {
+function PhotoCard({ grad, children }: { grad: string; children?: React.ReactNode }) {
   return (
-    <div
-      className={`relative aspect-[4/5] overflow-hidden rounded-2xl bg-gradient-to-br ${grad}`}
-    >
+    <div className={`relative aspect-[4/5] w-24 shrink-0 overflow-hidden rounded-2xl bg-gradient-to-br ${grad}`}>
       <div className="absolute inset-0 bg-[radial-gradient(120%_100%_at_50%_0%,rgba(255,255,255,0.25),transparent_60%)]" />
       <div className="absolute inset-0 opacity-20 [background-image:radial-gradient(rgba(255,255,255,0.6)_1px,transparent_1px)] [background-size:14px_14px]" />
       {children}
@@ -184,224 +184,283 @@ export default function BuildathonPage() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-[#2b0a30] font-sans text-white">
-      {/* glow background + animated grid */}
+    <div className="relative min-h-screen overflow-hidden bg-[#150920] font-sans text-white">
+
+      {/* ── global background ─────────────────────────────────────────── */}
       <div className="pointer-events-none fixed inset-0 -z-10">
-        <div className="absolute inset-0 bg-[radial-gradient(125%_85%_at_50%_-10%,#5d1659_0%,#360e3a_42%,#1c0922_100%)]" />
-        {/* animated grid — slow drift, radial-masked, cheap (GPU-composited) */}
+        <div className="absolute inset-0 bg-[radial-gradient(130%_90%_at_50%_-5%,#4a1060_0%,#270a35_40%,#0f0518_100%)]" />
         <div className="bld-grid absolute inset-0" />
-        <div className="absolute -right-[10%] top-[14%] h-[42rem] w-[42rem] rounded-full bg-[radial-gradient(circle,rgba(206,46,160,0.34),transparent_70%)] blur-3xl" />
-        <div className="absolute -left-[12%] top-[55%] h-[38rem] w-[38rem] rounded-full bg-[radial-gradient(circle,rgba(124,58,237,0.3),transparent_70%)] blur-3xl" />
+        <div className="absolute -right-[8%] top-[10%] h-[50rem] w-[50rem] rounded-full bg-[radial-gradient(circle,rgba(180,40,140,0.28),transparent_65%)] blur-3xl" />
+        <div className="absolute -left-[10%] top-[50%] h-[44rem] w-[44rem] rounded-full bg-[radial-gradient(circle,rgba(100,50,220,0.22),transparent_65%)] blur-3xl" />
+        <div className="absolute bottom-0 left-1/2 h-[30rem] w-[60rem] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(237,193,104,0.06),transparent_70%)] blur-3xl" />
       </div>
 
       <style jsx>{`
         .bld-grid {
-          background-image: linear-gradient(
-              rgba(237, 193, 104, 0.06) 1px,
-              transparent 1px
-            ),
-            linear-gradient(90deg, rgba(206, 130, 230, 0.07) 1px, transparent 1px);
-          background-size: 54px 54px;
-          -webkit-mask-image: radial-gradient(
-            ellipse 75% 60% at 50% 38%,
-            #000 35%,
-            transparent 78%
-          );
-          mask-image: radial-gradient(
-            ellipse 75% 60% at 50% 38%,
-            #000 35%,
-            transparent 78%
-          );
+          background-image:
+            linear-gradient(rgba(237,193,104,0.055) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(200,100,230,0.06) 1px, transparent 1px);
+          background-size: 52px 52px;
+          -webkit-mask-image: radial-gradient(ellipse 80% 65% at 50% 35%, #000 30%, transparent 80%);
+          mask-image: radial-gradient(ellipse 80% 65% at 50% 35%, #000 30%, transparent 80%);
           will-change: background-position;
-          animation: bld-grid-drift 24s linear infinite;
+          animation: bld-grid-drift 28s linear infinite;
         }
-        @keyframes bld-grid-drift {
-          to {
-            background-position: 54px 54px;
-          }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .bld-grid {
-            animation: none;
-          }
-        }
+        @keyframes bld-grid-drift { to { background-position: 52px 52px; } }
+        @media (prefers-reduced-motion: reduce) { .bld-grid { animation: none; } }
       `}</style>
 
-      {/* ---------------------------------------------------------- navbar --- */}
-      <header className="sticky top-0 z-50 border-b border-white/5 bg-[#2b0a30]/60 backdrop-blur-xl">
+      {/* ── navbar ────────────────────────────────────────────────────── */}
+      <header className="sticky top-0 z-50 border-b border-white/[0.06] bg-[#150920]/70 backdrop-blur-2xl">
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
-          <a href="/" className="flex items-center gap-2">
-            <Image src="/tutedude-logo.svg" alt="Tutedude" width={30} height={30} />
+          <a href="/" className="flex items-center gap-2.5">
+            <Image src="/tutedudelogo.png" alt="Tutedude" width={32} height={32} />
             <span className="text-lg font-bold tracking-tight">Tutedude</span>
           </a>
           <div className="flex items-center gap-3">
-            <button className="rounded-full px-5 py-2 text-sm font-semibold text-white/80 transition-colors hover:text-white">
+            <button className="hidden rounded-full px-5 py-2 text-sm font-semibold text-white/70 transition-colors hover:text-white sm:block">
               Login
             </button>
-            <button
-              className={`rounded-full px-5 py-2 text-sm font-bold transition-transform hover:-translate-y-0.5 ${GOLD_BTN}`}
-            >
+            <button className={`rounded-full px-5 py-2 text-sm font-bold transition-all hover:-translate-y-0.5 hover:shadow-[0_14px_36px_-8px_rgba(231,170,58,0.7)] ${GOLD_BTN}`}>
               Sign Up
             </button>
           </div>
         </nav>
       </header>
 
-      {/* ---------------------------------------------------------- hero --- */}
-      <section className="relative mx-auto flex max-w-5xl flex-col items-center px-5 pb-24 pt-20 text-center sm:px-8 sm:pt-28">
-        {/* hex badge */}
-        <div className="pointer-events-none absolute top-10 left-1/2 h-[26rem] w-[26rem] -translate-x-1/2 opacity-[0.07]">
-          <div className="h-full w-full [clip-path:polygon(50%_0,93%_25%,93%_75%,50%_100%,7%_75%,7%_25%)] border border-white bg-white/5" />
+      {/* ── hero ──────────────────────────────────────────────────────── */}
+      <section className="relative mx-auto flex max-w-5xl flex-col items-center px-5 pb-28 pt-16 text-center sm:px-8 sm:pt-24">
+
+        {/* perspective diamond stage */}
+        <div className="pointer-events-none absolute left-1/2 top-0 -z-0 w-[min(96vw,700px)] -translate-x-1/2">
+          <svg viewBox="0 0 700 580" className="h-auto w-full" aria-hidden>
+            <defs>
+              <linearGradient id="cyanStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#22d3ee" stopOpacity="0.85" />
+                <stop offset="100%" stopColor="#818cf8" stopOpacity="0.65" />
+              </linearGradient>
+              <filter id="diamondGlow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="3.5" result="b" />
+                <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
+              </filter>
+            </defs>
+
+            {/* right wall */}
+            <polygon points="350,68 636,218 636,448 350,448" fill="rgba(34,211,238,0.035)" stroke="url(#cyanStroke)" strokeWidth="1.4" filter="url(#diamondGlow)" />
+            {/* left wall */}
+            <polygon points="350,68 64,218 64,448 350,448" fill="rgba(129,140,248,0.03)" stroke="url(#cyanStroke)" strokeWidth="1.4" filter="url(#diamondGlow)" />
+            {/* top lid */}
+            <polygon points="350,68 636,218 350,368 64,218" fill="rgba(34,211,238,0.045)" stroke="url(#cyanStroke)" strokeWidth="1.8" filter="url(#diamondGlow)" />
+            {/* bottom base */}
+            <polygon points="350,448 636,448 350,530 64,448" fill="rgba(34,211,238,0.04)" stroke="url(#cyanStroke)" strokeWidth="1.4" filter="url(#diamondGlow)" />
+
+            {/* lid grid horizontals */}
+            {[0.3, 0.6].map((t, i) => (
+              <line key={`lh${i}`}
+                x1={64 + (636-64)*t*0.5} y1={218 + (368-218)*t*0.55}
+                x2={636 - (636-64)*t*0.5} y2={218 + (368-218)*t*0.55}
+                stroke="rgba(34,211,238,0.1)" strokeWidth="0.7" />
+            ))}
+            {/* lid diagonals */}
+            {[0.35, 0.65].map((t, i) => (
+              <line key={`ld${i}`}
+                x1={64 + (636-64)*t} y1={218}
+                x2={350} y2={368}
+                stroke="rgba(34,211,238,0.08)" strokeWidth="0.7" />
+            ))}
+
+            {/* sparkle dots */}
+            {[[28,90],[672,72],[680,280],[16,340],[668,460],[90,490],[350,16],[350,545],[160,140],[540,140]].map(([cx,cy],i) => (
+              <circle key={i} cx={cx} cy={cy} r={i%3===0?2.8:1.6}
+                fill={i%2===0?"#22d3ee":"#a78bfa"}
+                opacity={0.45+(i%3)*0.18} />
+            ))}
+          </svg>
         </div>
 
+        {/* eyebrow */}
         <motion.span
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#edc168]/30 bg-[#edc168]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#edc168]"
+          className="relative z-10 mb-7 inline-flex items-center gap-2 rounded-full border border-[#edc168]/30 bg-[#edc168]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-[#edc168]"
         >
           <Sparkles className="h-3.5 w-3.5" /> The Tutedude Buildathon
         </motion.span>
 
+        {/* title */}
         <motion.h1
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="font-display text-[clamp(2.6rem,8vw,5.5rem)] font-extrabold leading-[0.95] tracking-tight"
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          className="relative z-10 text-center"
         >
-          Tutedude{" "}
-          <span className="relative whitespace-nowrap">
-            <span className={GOLD}>Buildathon</span>
-            <Sparkles className="absolute -right-7 -top-2 hidden h-6 w-6 text-[#edc168] sm:block" />
+          <span className="block font-display text-[clamp(1.5rem,3.2vw,2.4rem)] font-extrabold leading-tight tracking-tight text-white/90">
+            Tutedude
+          </span>
+          <span className={`relative block font-display text-[clamp(4.2rem,15vw,9.5rem)] font-extrabold leading-[0.86] tracking-tight ${GOLD}`}>
+            Buildathon
+            <sup className="align-super text-[0.28em] font-bold opacity-70">™</sup>
           </span>
         </motion.h1>
 
+        {/* tagline */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.25, duration: 0.7 }}
-          className="mt-6 max-w-xl text-base leading-relaxed text-white/70 sm:text-lg"
+          transition={{ delay: 0.3, duration: 0.7 }}
+          className="relative z-10 mt-7 max-w-lg text-base leading-relaxed text-white/65 sm:text-lg"
         >
-          Build. Collaborate. Launch your ideas. It's not just a competition — it's
+          Build. Collaborate. Launch your ideas.{" "}
+          <span className="text-white/85 font-medium">It&apos;s not just a competition</span> — it&apos;s
           your chance to build something real, with real impact.
         </motion.p>
 
-        <motion.button
+        {/* cta row */}
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.7 }}
-          whileHover={{ scale: 1.04 }}
-          whileTap={{ scale: 0.97 }}
-          className={`mt-9 rounded-full px-8 py-4 text-base font-bold ${GOLD_BTN}`}
+          transition={{ delay: 0.48, duration: 0.7 }}
+          className="relative z-10 mt-10 flex flex-wrap items-center justify-center gap-4"
         >
-          Register Now for Free!
-        </motion.button>
-
-        {/* floating iPhone — same prize image as the homepage */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.8 }}
-          className="pointer-events-none mt-14"
-        >
-          <motion.div
-            animate={{ y: [0, -14, 0] }}
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+          <motion.button
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.97 }}
+            className={`rounded-full px-9 py-4 text-base font-bold transition-shadow hover:shadow-[0_20px_50px_-10px_rgba(231,170,58,0.65)] ${GOLD_BTN}`}
           >
-            <Image
-              src="/iphone-15-prize.png"
-              alt="iPhone — Buildathon prize"
-              width={457}
-              height={600}
-              priority
-              className="mx-auto w-40 drop-shadow-[0_36px_70px_rgba(0,0,0,0.55)] sm:w-48 lg:w-56"
-            />
-          </motion.div>
+            Register Now for Free!
+          </motion.button>
+          <button className="flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-7 py-4 text-sm font-semibold text-white/80 backdrop-blur transition-all hover:border-white/30 hover:bg-white/10 hover:text-white">
+            Learn More <ArrowRight className="h-4 w-4" />
+          </button>
+        </motion.div>
+
+        {/* social proof strip */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.7, duration: 0.8 }}
+          className="relative z-10 mt-10 flex items-center gap-3 text-sm text-white/45"
+        >
+          <div className="flex -space-x-2">
+            {["from-violet-500 to-blue-500","from-pink-500 to-purple-500","from-amber-400 to-red-500","from-emerald-400 to-cyan-500"].map((g,i) => (
+              <div key={i} className={`h-8 w-8 rounded-full border-2 border-[#150920] bg-gradient-to-br ${g}`} />
+            ))}
+          </div>
+          <span>Join <span className="font-semibold text-white/70">2,400+</span> builders already registered</span>
         </motion.div>
       </section>
 
-      {/* ------------------------------------------------ what is buildathon --- */}
-      <section className="mx-auto max-w-5xl px-5 py-16 text-center sm:px-8">
+      {/* ── what is buildathon ────────────────────────────────────────── */}
+      <section className="mx-auto max-w-5xl px-5 py-20 text-center sm:px-8">
         <Reveal direction="up">
           <h2 className="font-display text-[clamp(2rem,5vw,3.25rem)] font-extrabold tracking-tight">
             What Is <span className={GOLD}>Buildathon?</span>
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/65">
-            Buildathon is an online 48–72 hour sprint where creators come together to
-            design, develop, and market real products. Whether you're a developer,
-            designer, or visionary — this is your chance to collaborate, innovate, and
-            launch.
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/60">
+            Buildathon is an online <span className="font-semibold text-white/85">48–72 hour sprint</span> where creators
+            come together to design, develop, and market real products. Whether you&apos;re a developer,
+            designer, or visionary — this is your chance to collaborate, innovate, and launch.
           </p>
         </Reveal>
 
-        <RevealGroup
-          className="mt-12 grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-5"
-          stagger={0.1}
-        >
+        <RevealGroup className="mt-14 grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-5" stagger={0.09}>
           {stats.map((s) => (
             <StatChip key={s.label} icon={s.icon} label={s.label} />
           ))}
         </RevealGroup>
       </section>
 
-      {/* ----------------------------------------------------- project types --- */}
-      <section className="mx-auto max-w-6xl px-5 py-16 sm:px-8">
+      {/* ── project types ─────────────────────────────────────────────── */}
+      <section className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
         <Reveal direction="up">
           <h2 className="text-center font-display text-[clamp(1.9rem,4.5vw,3rem)] font-extrabold tracking-tight">
             What Type of Projects <span className={GOLD}>Can You Build?</span>
           </h2>
+          <p className="mt-3 text-center text-base text-white/55">
+            Every format is fair game — pick a track or mix them.
+          </p>
         </Reveal>
-        <RevealGroup
-          className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
-          stagger={0.08}
-        >
-          {projects.map((p) => (
-            <RevealItem key={p.tag}>
-              <div
-                className={`${CARD} group h-full overflow-hidden p-1 transition-transform duration-300 hover:-translate-y-1.5`}
-              >
-                <div
-                  className={`mb-4 flex h-32 items-center justify-center rounded-[1.3rem] bg-gradient-to-br ${p.grad} text-2xl font-extrabold text-white/95`}
-                >
-                  {p.tag}
+
+        <RevealGroup className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4" stagger={0.08}>
+          {projects.map((p) => {
+            const Icon = p.icon;
+            return (
+              <RevealItem key={p.tag}>
+                <div className={`${CARD} group h-full overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:border-white/20 hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)]`}>
+                  <div className={`relative flex h-36 items-center justify-center overflow-hidden bg-gradient-to-br ${p.grad}`}>
+                    <div className="absolute inset-0 opacity-30 [background-image:radial-gradient(rgba(255,255,255,0.5)_1px,transparent_1px)] [background-size:16px_16px]" />
+                    <div className="relative z-10 flex flex-col items-center gap-2">
+                      <Icon className="h-8 w-8 text-white/90" />
+                      <span className="text-sm font-bold text-white/90 px-3 text-center">{p.tag}</span>
+                    </div>
+                  </div>
+                  <div className="p-5">
+                    <h3 className="text-base font-bold leading-snug">{p.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-white/55">{p.desc}</p>
+                  </div>
                 </div>
-                <div className="px-4 pb-5">
-                  <h3 className="text-lg font-bold">{p.title}</h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-white/60">
-                    {p.desc}
-                  </p>
-                </div>
-              </div>
-            </RevealItem>
-          ))}
+              </RevealItem>
+            );
+          })}
         </RevealGroup>
       </section>
 
-      {/* ------------------------------------------------------- who can join --- */}
-      <section className="mx-auto max-w-6xl px-5 py-16 sm:px-8">
+      {/* ── prize banner ──────────────────────────────────────────────── */}
+      <section className="mx-auto max-w-5xl px-5 py-10 sm:px-8">
+        <Reveal direction="scale">
+          <div className="relative overflow-hidden rounded-[2rem] border border-[#edc168]/20 bg-gradient-to-br from-[#2a0a3a] via-[#3a0f33] to-[#1a0525] p-8 sm:p-12">
+            <div className="absolute -right-12 -top-12 h-48 w-48 rounded-full bg-[#edc168]/15 blur-3xl" />
+            <div className="absolute -left-12 bottom-0 h-36 w-36 rounded-full bg-[#a855f7]/15 blur-3xl" />
+            <div className="relative z-10 flex flex-col items-center gap-4 text-center sm:flex-row sm:text-left sm:gap-8">
+              <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl border border-[#edc168]/30 bg-[#edc168]/10">
+                <Trophy className="h-10 w-10 text-[#edc168]" />
+              </div>
+              <div className="flex-1">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-[#edc168]/15 px-3 py-1 text-xs font-bold uppercase tracking-widest text-[#edc168]">
+                  <Crown className="h-3 w-3" /> Grand Prize
+                </span>
+                <h3 className="mt-2 font-display text-2xl font-extrabold sm:text-3xl">
+                  Win <span className={GOLD}>₹10,000 Cash</span> + Recognition
+                </h3>
+                <p className="mt-1.5 text-sm text-white/60">
+                  Top teams win cash prizes, certificates, internship opportunities, and permanent
+                  recognition in the Tutedude Hall of Fame.
+                </p>
+              </div>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.97 }}
+                className={`shrink-0 rounded-full px-7 py-3.5 text-sm font-bold ${GOLD_BTN}`}
+              >
+                Register Free
+              </motion.button>
+            </div>
+          </div>
+        </Reveal>
+      </section>
+
+      {/* ── who can join ──────────────────────────────────────────────── */}
+      <section className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
         <Reveal direction="up">
           <h2 className="text-center font-display text-[clamp(2rem,5vw,3.25rem)] font-extrabold tracking-tight">
             Who Can <span className={GOLD}>Join?</span>
           </h2>
-          <p className="mt-3 text-center text-lg font-medium text-white/60">
-            If you can build, you belong.
+          <p className="mt-3 text-center text-lg font-medium text-white/55">
+            If you can build, you belong here.
           </p>
         </Reveal>
 
-        <RevealGroup className="mt-12 grid gap-6 sm:grid-cols-2" stagger={0.1}>
+        <RevealGroup className="mt-12 grid gap-5 sm:grid-cols-2" stagger={0.1}>
           {audience.map((a) => (
             <RevealItem key={a.title}>
-              <div
-                className={`${CARD} group flex h-full gap-5 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-[#edc168]/30`}
-              >
+              <div className={`${CARD} group flex h-full items-center gap-5 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-[#edc168]/25 hover:shadow-[0_16px_40px_-12px_rgba(0,0,0,0.4)]`}>
                 <PhotoCard grad={a.grad}>
                   <a.icon className="absolute bottom-3 left-3 h-7 w-7 text-white/90" />
                 </PhotoCard>
-                <div className="flex-1 self-center">
-                  <h3 className="text-xl font-bold">{a.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-white/65">
-                    {a.desc}
-                  </p>
+                <div className="flex-1">
+                  <h3 className="text-lg font-bold leading-snug">{a.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-white/60">{a.desc}</p>
                 </div>
               </div>
             </RevealItem>
@@ -409,52 +468,85 @@ export default function BuildathonPage() {
         </RevealGroup>
       </section>
 
-      {/* ------------------------------------------------------- internship --- */}
-      <section className="mx-auto max-w-5xl px-5 py-16 text-center sm:px-8">
+      {/* ── how it works ──────────────────────────────────────────────── */}
+      <section className="mx-auto max-w-5xl px-5 py-20 sm:px-8">
         <Reveal direction="up">
-          <h2 className="font-display text-[clamp(1.8rem,4.5vw,2.9rem)] font-extrabold tracking-tight">
-            <span className={GOLD}>Internship Assistance</span> with Resume Building
-            in One Place
+          <h2 className="text-center font-display text-[clamp(1.9rem,4.5vw,3rem)] font-extrabold tracking-tight">
+            How It <span className={GOLD}>Works</span>
           </h2>
         </Reveal>
-        <RevealGroup className="mt-12 grid gap-6 sm:grid-cols-3" stagger={0.1}>
-          {internship.map((it) => (
-            <RevealItem key={it.title}>
-              <div
-                className={`${CARD} group h-full p-7 text-left transition-transform duration-300 hover:-translate-y-1.5`}
-              >
-                <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[#edc168]/30 bg-[#edc168]/10 text-[#edc168] transition-transform group-hover:scale-110">
-                  <it.icon className="h-6 w-6" />
-                </span>
-                <h3 className="mt-5 text-xl font-bold">{it.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/65">{it.desc}</p>
+        <RevealGroup className="mt-12 grid gap-4 sm:grid-cols-3" stagger={0.09}>
+          {[
+            { n: "01", icon: Rocket, title: "Register Free", desc: "Sign up solo or form a team of 3–5 members in seconds." },
+            { n: "02", icon: Code2,  title: "Build in 48–72 hrs", desc: "Sprint, collaborate, and ship a real working product." },
+            { n: "03", icon: Trophy, title: "Win & Get Featured", desc: "Get judged, win prizes, and join the Hall of Fame." },
+          ].map((s) => (
+            <RevealItem key={s.n}>
+              <div className={`${CARD} group h-full p-7 text-center transition-all duration-300 hover:-translate-y-2 hover:border-[#edc168]/25`}>
+                <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-b from-[#f7dd97] to-[#dca23a] text-[#3a0f33]">
+                  <s.icon className="h-6 w-6" />
+                </div>
+                <span className={`block text-xs font-bold uppercase tracking-widest ${GOLD}`}>{s.n}</span>
+                <h3 className="mt-2 text-xl font-bold">{s.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-white/60">{s.desc}</p>
               </div>
             </RevealItem>
           ))}
         </RevealGroup>
       </section>
 
-      {/* ---------------------------------------------------- tutedude plus --- */}
-      <section className="mx-auto max-w-5xl px-5 py-16 sm:px-8">
+      {/* ── internship ────────────────────────────────────────────────── */}
+      <section className="mx-auto max-w-5xl px-5 py-20 text-center sm:px-8">
+        <Reveal direction="up">
+          <h2 className="font-display text-[clamp(1.8rem,4.5vw,2.9rem)] font-extrabold tracking-tight">
+            <span className={GOLD}>Internship Assistance</span>{" "}
+            <span className="text-white">with Resume Building in One Place</span>
+          </h2>
+          <p className="mt-4 text-base text-white/55">
+            We don&apos;t just help you build — we help you get hired.
+          </p>
+        </Reveal>
+
+        <RevealGroup className="mt-12 grid gap-6 sm:grid-cols-3" stagger={0.1}>
+          {internship.map((it) => (
+            <RevealItem key={it.title}>
+              <div className={`${CARD} group h-full p-7 text-left transition-all duration-300 hover:-translate-y-1.5 hover:border-[#edc168]/25`}>
+                <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[#edc168]/30 bg-[#edc168]/10 text-[#edc168] transition-all group-hover:scale-110 group-hover:bg-[#edc168]/20">
+                  <it.icon className="h-6 w-6" />
+                </span>
+                <h3 className="mt-5 text-xl font-bold">{it.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-white/60">{it.desc}</p>
+              </div>
+            </RevealItem>
+          ))}
+        </RevealGroup>
+      </section>
+
+      {/* ── tutedude plus ─────────────────────────────────────────────── */}
+      <section className="mx-auto max-w-5xl px-5 py-10 sm:px-8">
         <Reveal direction="scale">
-          <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#f8e3a6] via-[#edc168] to-[#d99a2b] p-8 text-center text-[#3a0f33] shadow-[0_30px_80px_-30px_rgba(231,170,58,0.7)] sm:p-12">
-            <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-white/30 blur-2xl" />
-            <div className="relative z-10 flex flex-col items-center">
-              <span className="inline-flex items-center gap-2 rounded-full bg-[#3a0f33]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider">
-                <Crown className="h-4 w-4" /> Tutedude Plus
-              </span>
-              <h3 className="mt-5 font-display text-2xl font-extrabold sm:text-4xl">
-                What are you waiting for? Get Tutedude Plus
-              </h3>
-              <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
-                <button className="rounded-full bg-[#3a0f33] px-7 py-3 text-sm font-bold text-white transition-transform hover:-translate-y-0.5">
+          <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#f8e3a6] via-[#edc168] to-[#d99a2b] p-8 text-[#3a0f33] shadow-[0_30px_80px_-20px_rgba(231,170,58,0.55)] sm:p-12">
+            <div className="absolute -right-8 -top-8 h-44 w-44 rounded-full bg-white/25 blur-2xl" />
+            <div className="absolute -bottom-8 left-8 h-32 w-32 rounded-full bg-white/15 blur-xl" />
+            <div className="relative z-10 flex flex-col items-center gap-6 text-center sm:flex-row sm:text-left sm:gap-10">
+              <div>
+                <span className="inline-flex items-center gap-2 rounded-full bg-[#3a0f33]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider">
+                  <Crown className="h-4 w-4" /> Tutedude Plus
+                </span>
+                <h3 className="mt-4 font-display text-2xl font-extrabold sm:text-3xl">
+                  What are you waiting for?<br className="hidden sm:block" /> Get Tutedude Plus
+                </h3>
+                <p className="mt-2 text-sm text-[#3a0f33]/70">
+                  Learn for free under the 100% Refund offer. Unlock all courses, live sessions & mentorship.
+                </p>
+              </div>
+              <div className="shrink-0 flex flex-col items-center gap-3">
+                <button className="rounded-full bg-[#3a0f33] px-8 py-3.5 text-sm font-bold text-white shadow-[0_8px_24px_-6px_rgba(58,15,51,0.4)] transition-all hover:-translate-y-0.5 hover:shadow-[0_14px_32px_-6px_rgba(58,15,51,0.5)]">
                   Start Subscription
                 </button>
                 <p className="text-lg font-extrabold">
                   ₹1,200<span className="text-sm font-semibold">/year</span>{" "}
-                  <span className="text-sm font-medium text-[#3a0f33]/55 line-through">
-                    ₹10,000/year
-                  </span>
+                  <span className="text-sm font-medium text-[#3a0f33]/50 line-through">₹10,000/year</span>
                 </p>
               </div>
             </div>
@@ -462,26 +554,26 @@ export default function BuildathonPage() {
         </Reveal>
       </section>
 
-      {/* ------------------------------------------------------ video reviews --- */}
-      <section className="mx-auto max-w-6xl px-5 py-16 sm:px-8">
+      {/* ── video reviews ─────────────────────────────────────────────── */}
+      <section className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
         <Reveal direction="up">
           <h2 className="text-center font-display text-[clamp(1.9rem,4.5vw,3rem)] font-extrabold tracking-tight">
             Video Reviews from <span className={GOLD}>Our Students!</span>
           </h2>
+          <p className="mt-3 text-center text-base text-white/50">Real stories. Real impact.</p>
         </Reveal>
-        <RevealGroup
-          className="mt-12 grid grid-cols-2 gap-5 lg:grid-cols-4"
-          stagger={0.08}
-        >
+        <RevealGroup className="mt-12 grid grid-cols-2 gap-5 lg:grid-cols-4" stagger={0.08}>
           {reviews.map((r) => (
             <RevealItem key={r.name}>
-              <div className="group">
-                <PhotoCard grad={r.grad}>
-                  <span className="absolute left-1/2 top-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-[#3a0f33] shadow-lg transition-transform duration-300 group-hover:scale-110">
+              <div className="group cursor-pointer">
+                <div className={`relative aspect-[4/5] overflow-hidden rounded-2xl bg-gradient-to-br ${r.grad} ring-0 transition-all duration-300 group-hover:ring-2 group-hover:ring-[#edc168]/40 group-hover:-translate-y-1.5`}>
+                  <div className="absolute inset-0 bg-[radial-gradient(120%_100%_at_50%_0%,rgba(255,255,255,0.22),transparent_60%)]" />
+                  <div className="absolute inset-0 opacity-20 [background-image:radial-gradient(rgba(255,255,255,0.6)_1px,transparent_1px)] [background-size:14px_14px]" />
+                  <span className="absolute left-1/2 top-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-[#3a0f33] shadow-lg transition-transform duration-300 group-hover:scale-115">
                     <Play className="h-5 w-5 translate-x-0.5 fill-current" />
                   </span>
-                </PhotoCard>
-                <p className="mt-3 text-center text-lg font-bold">{r.name}</p>
+                </div>
+                <p className="mt-3 text-center text-base font-bold">{r.name}</p>
                 <p className="text-center text-sm text-[#edc168]">{r.role}</p>
               </div>
             </RevealItem>
@@ -489,8 +581,8 @@ export default function BuildathonPage() {
         </RevealGroup>
       </section>
 
-      {/* ------------------------------------------------------------- faq --- */}
-      <section className="mx-auto max-w-3xl px-5 py-16 sm:px-8">
+      {/* ── faq ───────────────────────────────────────────────────────── */}
+      <section className="mx-auto max-w-3xl px-5 py-20 sm:px-8">
         <Reveal direction="up">
           <h2 className="text-center font-display text-[clamp(1.9rem,4.5vw,3rem)] font-extrabold tracking-tight">
             Frequently Asked <span className={GOLD}>Questions</span>
@@ -501,35 +593,24 @@ export default function BuildathonPage() {
             const isOpen = open === i;
             return (
               <Reveal key={f.q} direction="up" delay={i * 0.05}>
-                <div className={`${CARD} overflow-hidden`}>
+                <div className={`overflow-hidden rounded-2xl border transition-colors duration-300 ${isOpen ? "border-[#edc168]/25 bg-white/[0.06]" : "border-white/8 bg-white/[0.03]"} backdrop-blur-md`}>
                   <button
                     onClick={() => setOpen(isOpen ? null : i)}
                     className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
+                    aria-expanded={isOpen}
                   >
                     <span className="text-base font-semibold sm:text-lg">{f.q}</span>
-                    <span
-                      className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-colors ${
-                        isOpen
-                          ? "bg-[#edc168] text-[#3a0f33]"
-                          : "bg-white/10 text-white"
-                      }`}
-                    >
-                      {isOpen ? (
-                        <Minus className="h-4 w-4" />
-                      ) : (
-                        <Plus className="h-4 w-4" />
-                      )}
+                    <span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-all duration-300 ${isOpen ? "bg-[#edc168] text-[#3a0f33] rotate-0" : "bg-white/10 text-white"}`}>
+                      {isOpen ? <Minus className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
                     </span>
                   </button>
                   <motion.div
                     initial={false}
                     animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
-                    transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{ duration: 0.32, ease: [0.16, 1, 0.3, 1] }}
                     className="overflow-hidden"
                   >
-                    <p className="px-6 pb-6 text-sm leading-relaxed text-white/65">
-                      {f.a}
-                    </p>
+                    <p className="px-6 pb-6 text-sm leading-relaxed text-white/65">{f.a}</p>
                   </motion.div>
                 </div>
               </Reveal>
@@ -538,75 +619,82 @@ export default function BuildathonPage() {
         </div>
       </section>
 
-      {/* ---------------------------------------------------------- footer --- */}
-      <footer className="border-t border-white/5 bg-[#1c0922]/60">
+      {/* ── final cta ─────────────────────────────────────────────────── */}
+      <section className="mx-auto max-w-4xl px-5 py-20 text-center sm:px-8">
+        <Reveal direction="up">
+          <span className="inline-flex items-center gap-2 rounded-full border border-[#edc168]/25 bg-[#edc168]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-[#edc168]">
+            <Rocket className="h-3.5 w-3.5" /> Your Turn
+          </span>
+          <h2 className="mt-6 font-display text-[clamp(2.4rem,7vw,5rem)] font-extrabold leading-[0.95] tracking-tight">
+            Ready to <span className={GOLD}>Build</span><br />something real?
+          </h2>
+          <p className="mx-auto mt-6 max-w-lg text-base text-white/60 sm:text-lg">
+            Join 2,400+ builders. Register free, form your team, and launch your idea this weekend.
+          </p>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+            <motion.button
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.97 }}
+              className={`rounded-full px-10 py-4 text-base font-bold transition-shadow hover:shadow-[0_20px_50px_-10px_rgba(231,170,58,0.65)] ${GOLD_BTN}`}
+            >
+              Register Now for Free!
+            </motion.button>
+          </div>
+          <p className={`mt-8 font-display text-2xl font-extrabold sm:text-3xl ${GOLD}`}>#TutedudeBuilds</p>
+        </Reveal>
+      </section>
+
+      {/* ── footer ────────────────────────────────────────────────────── */}
+      <footer className="border-t border-white/[0.06] bg-[#0d0514]/70">
         <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 sm:grid-cols-2 sm:px-8 lg:grid-cols-4">
           <div>
-            <div className="mb-4 flex items-center gap-2">
-              <Image src="/tutedude-logo.svg" alt="Tutedude" width={28} height={28} />
+            <div className="mb-4 flex items-center gap-2.5">
+              <Image src="/tutedudelogo.png" alt="Tutedude" width={30} height={30} />
               <span className="text-lg font-bold">Tutedude</span>
             </div>
-            <p className="text-sm leading-relaxed text-white/50">
-              Build. Collaborate. Launch. Join the Buildathon and turn your ideas into
-              real products.
+            <p className="text-sm leading-relaxed text-white/45">
+              Build. Collaborate. Launch. Join the Buildathon and turn your ideas into real products.
             </p>
           </div>
 
           <div>
-            <h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-white/80">
-              Other Links
-            </h4>
-            <ul className="space-y-2 text-sm text-white/55">
+            <h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-white/70">Other Links</h4>
+            <ul className="space-y-2 text-sm text-white/50">
               {["About us", "Contact us", "Privacy Policy", "Terms of Use"].map((l) => (
                 <li key={l}>
-                  <a href="#" className="transition-colors hover:text-[#edc168]">
-                    {l}
-                  </a>
+                  <a href="#" className="transition-colors hover:text-[#edc168]">{l}</a>
                 </li>
               ))}
             </ul>
           </div>
 
           <div>
-            <h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-white/80">
-              Contact Us
-            </h4>
-            <ul className="space-y-3 text-sm text-white/55">
-              <li className="flex items-center gap-2">
-                <Mail className="h-4 w-4 text-[#edc168]" /> support@tutedude.com
-              </li>
-              <li className="flex items-center gap-2">
-                <Phone className="h-4 w-4 text-[#edc168]" /> +91 79888 00474
-              </li>
+            <h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-white/70">Contact Us</h4>
+            <ul className="space-y-3 text-sm text-white/50">
+              <li className="flex items-center gap-2"><Mail className="h-4 w-4 text-[#edc168]" /> support@tutedude.com</li>
+              <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-[#edc168]" /> +91 79888 00474</li>
               <li className="flex items-start gap-2">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#edc168]" /> Suncity
-                Success Tower, Sector 65, Gurugram, Haryana, 122005
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#edc168]" />
+                Suncity Success Tower, Sector 65, Gurugram, Haryana, 122005
               </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-white/80">
-              Social Links
-            </h4>
+            <h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-white/70">Social Links</h4>
             <div className="flex gap-3">
               {[Linkedin, Instagram, Facebook, Youtube].map((Icon, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  className={`flex h-10 w-10 items-center justify-center rounded-xl transition-transform hover:-translate-y-1 ${GOLD_BTN}`}
-                >
+                <a key={i} href="#" aria-label="Social link"
+                  className={`flex h-10 w-10 items-center justify-center rounded-xl transition-all hover:-translate-y-1 hover:shadow-[0_8px_20px_-4px_rgba(231,170,58,0.5)] ${GOLD_BTN}`}>
                   <Icon className="h-4 w-4" />
                 </a>
               ))}
             </div>
           </div>
         </div>
-        <p className="border-t border-white/5 py-6 text-center text-xs text-white/35">
-          © {new Date().getFullYear()} Tutedude · Buildathon ·{" "}
-          <span className="inline-flex items-center gap-1">
-            Made with <ArrowRight className="h-3 w-3" /> purpose
-          </span>
+
+        <p className="border-t border-white/[0.06] py-6 text-center text-xs text-white/30">
+          © {new Date().getFullYear()} Tutedude · Buildathon™ · Made with purpose
         </p>
       </footer>
     </div>

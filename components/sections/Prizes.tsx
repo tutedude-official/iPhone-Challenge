@@ -50,7 +50,7 @@ export default function Prizes() {
                   className="relative"
                 >
                   <Image
-                    src="/iphone-15-prize.png"
+                    src="/iphone-17-prize.webp"
                     alt="iPhone 15 in green — the grand prize"
                     width={914}
                     height={1200}

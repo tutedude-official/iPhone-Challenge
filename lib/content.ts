@@ -25,7 +25,7 @@ export const welcome = {
   eyebrow: "WELCOME",
   index: "01 — INTRO",
   titleLead: "Welcome,",
-  titleAccent: "Creator",
+  titleAccent: "Students",
   titleEmoji: "👋",
   lead: [
     "You're not here to create",
@@ -36,7 +36,7 @@ export const welcome = {
   body:
     "Whether you're learning AI, Coding, Data Analytics, Marketing, Cybersecurity, Design — or any other skill through Tutedude — this challenge is your stage.",
   checklist: [
-    "Build your creator profile",
+    "Build your student profile",
     "Share your progress",
     "Inspire others & get featured",
     "Win exciting rewards",
@@ -61,19 +61,19 @@ export const prizes = {
   titleAccent: "win?",
   grand: {
     badge: "GRAND PRIZE",
-    name: "iPhone 15",
+    name: "iPhone 17",
     description:
-      "Awarded to the creator with the strongest combination of creativity, consistency, quality and performance.",
-    imageLabel: "Shop iPhone 15 image",
+      "Awarded to the student with the strongest combination of creativity, consistency, quality and performance.",
+    imageLabel: "Shop iPhone 17 image",
   },
   cards: [
     {
-      title: "Creator Spotlights",
+      title: "Student Spotlights",
       description:
         "Get featured across Tutedude's platforms & reach thousands of learners.",
     },
     {
-      title: "Creator of the Week",
+      title: "Student of the Week",
       description:
         "Weekly recognition for standout reels — every single week.",
     },
@@ -418,11 +418,11 @@ export const faq = {
 
 /* Closing — YOUR TURN */
 export const closing = {
-  eyebrow: "YOUR TURN, CREATOR",
+  eyebrow: "YOUR TURN, STUDENT",
   nowFeaturing: "Now featuring: You",
   reelTime: "Reel · 0:42",
   titleLead: "Someone's",
-  titleLine2: "favourite creator",
+  titleLine2: "favourite student",
   titleAccent: "could be you.",
   chips: ["Create", "Learn", "Share", "Win"],
   emberChip: "Win",

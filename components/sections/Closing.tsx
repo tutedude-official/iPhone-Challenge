@@ -134,7 +134,7 @@ export default function Closing() {
           className="pointer-events-none absolute left-[28%] top-[38%] z-10 -translate-x-1/2 -translate-y-1/2"
         >
           <Image
-            src="/iphone-15-prize.png"
+            src="/iphone-17-prize.webp"
             alt="iPhone 15 — the prize"
             width={457}
             height={600}
@@ -153,7 +153,7 @@ export default function Closing() {
         <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-6 px-5 py-8 sm:flex-row sm:px-8">
           <div className="flex items-center gap-2">
             <Image
-              src="/tutedude-logo.svg"
+              src="/tutedudelogo.png"
               alt="Tutedude"
               width={28}
               height={28}

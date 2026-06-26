@@ -15,6 +15,29 @@ import { lerp } from "@/lib/utils";
  *   data-cursor-label="Explore"
  */
 
+// Walk up the DOM to find the first non-transparent background color.
+function getComputedBg(el: HTMLElement): string | null {
+  let cur: HTMLElement | null = el;
+  while (cur && cur !== document.body) {
+    const bg = window.getComputedStyle(cur).backgroundColor;
+    if (bg && bg !== "rgba(0, 0, 0, 0)" && bg !== "transparent") return bg;
+    cur = cur.parentElement;
+  }
+  return null;
+}
+
+// Parse rgb/rgba string → HSL hue (0–359), or null for achromatic.
+function rgbToHue(rgb: string): number | null {
+  const m = rgb.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+  if (!m) return null;
+  const r = +m[1] / 255, g = +m[2] / 255, b = +m[3] / 255;
+  const max = Math.max(r, g, b), min = Math.min(r, g, b), d = max - min;
+  if (d === 0) return null;
+  let h = max === r ? ((g - b) / d) % 6 : max === g ? (b - r) / d + 2 : (r - g) / d + 4;
+  h = Math.round(h * 60);
+  return h < 0 ? h + 360 : h;
+}
+
 // Where the pointer "tip" sits inside the hand image (ratio of its size).
 const HOTSPOT_X = 0.22;
 const HOTSPOT_Y = 0.1;
@@ -124,6 +147,22 @@ export default function CustomCursor() {
       dot.style.transform = `translate3d(${pos.x}px, ${pos.y}px, 0) translate(-50%, -50%) scale(${state.down ? 0.7 : 1})`;
       hand.style.transform = `translate3d(${pos.x - hotX}px, ${pos.y - hotY}px, 0) rotate(${tilt}deg) scale(${scale})`;
 
+      // Swap dot color based on background hue under pointer.
+      const elUnder = document.elementFromPoint(mouse.x, mouse.y) as HTMLElement | null;
+      if (elUnder) {
+        const bg = getComputedBg(elUnder);
+        const hue = bg ? rgbToHue(bg) : null;
+        if (hue !== null && hue >= 30 && hue <= 65) {
+          // Gold / amber background → violet dot
+          dot.style.backgroundColor = "#7C3AED";
+        } else if (hue !== null && hue >= 255 && hue <= 310) {
+          // Violet / purple background → gold dot
+          dot.style.backgroundColor = "#EAB308";
+        } else {
+          dot.style.backgroundColor = "";
+        }
+      }
+
       if (state.labelText) {
         label.textContent = state.labelText;
         label.style.transform = `translate3d(${pos.x}px, ${pos.y + 44}px, 0) translate(-50%, 0) scale(1)`;
@@ -162,7 +201,7 @@ export default function CustomCursor() {
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         ref={handRef}
-        src="/cursor-hand.svg"
+        src="/cursor.png"
         alt=""
         aria-hidden
         draggable={false}

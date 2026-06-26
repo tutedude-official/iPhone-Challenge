@@ -136,7 +136,7 @@ export default function Navbar() {
             className="flex items-center gap-2 rounded-full px-2 py-1"
           >
             <Image
-              src="/tutedude-logo.svg"
+              src="/tutedudelogo.png"
               alt="Tutedude"
               width={40}
               height={40}
