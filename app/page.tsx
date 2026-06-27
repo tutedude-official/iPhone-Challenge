@@ -107,13 +107,8 @@ export default function Home() {
               transition={{ repeat: Infinity, duration: 3.8, ease: "easeInOut" }}
               className="relative isolate"
             >
-              {/* shining rays behind phone */}
-              <div className="pointer-events-none absolute left-1/2 top-1/2 -z-10" style={{ transform: "translate(-50%, -50%)", width: "200%", height: "200%" }}>
-                {/* rotating rays */}
-                <div className="iphone-rays h-full w-full rounded-full" style={{ background: "conic-gradient(from 0deg, transparent 0deg, rgba(237,193,104,0.18) 12deg, transparent 24deg, transparent 42deg, rgba(237,193,104,0.14) 54deg, transparent 66deg, transparent 84deg, rgba(237,193,104,0.16) 96deg, transparent 108deg, transparent 126deg, rgba(237,193,104,0.12) 138deg, transparent 150deg, transparent 168deg, rgba(237,193,104,0.18) 180deg, transparent 192deg, transparent 210deg, rgba(237,193,104,0.14) 222deg, transparent 234deg, transparent 252deg, rgba(237,193,104,0.16) 264deg, transparent 276deg, transparent 294deg, rgba(237,193,104,0.12) 306deg, transparent 318deg, transparent 360deg)", filter: "blur(6px)" }} />
-                {/* central glow */}
-                <div className="iphone-centre absolute left-1/2 top-1/2 rounded-full" style={{ transform: "translate(-50%, -50%)", width: "55%", height: "55%", background: "radial-gradient(circle, rgba(237,193,104,0.7) 0%, rgba(200,100,220,0.25) 45%, transparent 70%)", filter: "blur(22px)" }} />
-              </div>
+              {/* static light behind phone */}
+              <div className="pointer-events-none absolute left-1/2 top-1/2 -z-10" style={{ transform: "translate(-50%, -50%)", width: "160%", height: "140%", borderRadius: "50%", background: "radial-gradient(ellipse at 50% 50%, rgba(237,193,104,0.55) 0%, rgba(180,60,220,0.22) 45%, transparent 72%)", filter: "blur(36px)" }} />
               <Image
                 src="/iphone-17-prize.webp"
                 alt="iPhone 17"
