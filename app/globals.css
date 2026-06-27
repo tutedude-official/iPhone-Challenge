@@ -436,9 +436,9 @@
    components (matchMedia max-width:767px). Desktop is intentionally untouched.
 --------------------------------------------------------------------------- */
 @media (max-width: 767px) {
-  *,
-  *::before,
-  *::after {
+  *:not(.star-twinkle):not(.iphone-glow),
+  *:not(.star-twinkle):not(.iphone-glow)::before,
+  *:not(.star-twinkle):not(.iphone-glow)::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     animation-delay: 0ms !important;
@@ -446,10 +446,33 @@
     scroll-behavior: auto !important;
   }
 
-  /* Purely decorative drifting overlays add nothing once frozen — hide them
-     so they never sit on top of content. */
   .wander-rocket,
   .flashlight {
     display: none !important;
   }
+}
+
+/* ── Hero star twinkle — CSS-only, GPU-composited (opacity + transform only) ── */
+@keyframes star-twinkle {
+  0%,  100% { opacity: 0.25; transform: scale(0.5) rotate(0deg);   }
+  25%        { opacity: 1;    transform: scale(1.4) rotate(72deg);  }
+  50%        { opacity: 0.5;  transform: scale(0.9) rotate(180deg); }
+  75%        { opacity: 1;    transform: scale(1.35) rotate(288deg);}
+}
+
+.star-twinkle {
+  animation: star-twinkle var(--star-dur, 2.5s) var(--star-delay, 0s) ease-in-out infinite;
+  will-change: opacity, transform;
+  transform-origin: center;
+}
+
+/* ── iPhone glow pulse — CSS-only, behind both phone images ── */
+@keyframes iphone-glow-pulse {
+  0%, 100% { opacity: 0.45; transform: scale(0.88); }
+  50%       { opacity: 0.82; transform: scale(1.12); }
+}
+.iphone-glow {
+  animation: iphone-glow-pulse 3.5s ease-in-out infinite;
+  will-change: opacity, transform;
+  transform-origin: center;
 }

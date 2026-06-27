@@ -1,8 +1,9 @@
 "use client";
 
+import React, { useRef } from "react";
 import { motion, useInView, type Variants } from "framer-motion";
-import { useRef } from "react";
 import { cn } from "@/lib/utils";
+import { useIsMobile } from "@/lib/useIsMobile";
 
 type Direction = "up" | "down" | "left" | "right" | "blur" | "scale";
 
@@ -62,10 +63,17 @@ export function Reveal({
   once?: boolean;
   as?: "div" | "section" | "li" | "span";
 }) {
+  const isMobile = useIsMobile();
   const ref = useRef(null);
   const inView = useInView(ref, { once, margin: "-12% 0px -12% 0px" });
   const MotionTag = motion[as] as typeof motion.div;
   const variants = buildVariants(direction, distance);
+
+  // On mobile: skip all JS-based animations to prevent flicker
+  if (isMobile) {
+    const Tag = as as React.ElementType;
+    return <Tag className={cn(className)}>{children}</Tag>;
+  }
 
   return (
     <MotionTag
@@ -93,8 +101,15 @@ export function RevealGroup({
   stagger?: number;
   once?: boolean;
 }) {
+  const isMobile = useIsMobile();
   const ref = useRef(null);
   const inView = useInView(ref, { once, margin: "-10% 0px -10% 0px" });
+
+  // On mobile: skip all JS-based animations to prevent flicker
+  if (isMobile) {
+    return <div className={cn(className)}>{children}</div>;
+  }
+
   return (
     <motion.div
       ref={ref}
@@ -122,6 +137,13 @@ export function RevealItem({
   direction?: Direction;
   distance?: number;
 }) {
+  const isMobile = useIsMobile();
+
+  // On mobile: skip all JS-based animations to prevent flicker
+  if (isMobile) {
+    return <div className={cn(className)}>{children}</div>;
+  }
+
   return (
     <motion.div className={cn(className)} variants={buildVariants(direction, distance)}>
       {children}

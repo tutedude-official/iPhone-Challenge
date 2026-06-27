@@ -10,7 +10,7 @@ export const meta = {
   challengeTag: "Tutedude iPhone Challenge",
   title: ["Tutedude", "iPhone", "Challenge"],
   tagline: ["Learn.", "Create.", "Share.", "Win."],
-  hashtag: "#30DayTutedudeChallenge",
+  hashtag: "#TutedudeiPhoneChallenge",
   heroChips: ["Win an iPhone", "Get Featured", "Build Your Brand"],
   phone: {
     badge: "+1 iPhone",
@@ -34,7 +34,7 @@ export const welcome = {
   ],
   leadAccent: "journey.",
   body:
-    "Whether you're learning AI, Coding, Data Analytics, Marketing, Cybersecurity, Design — or any other skill through Tutedude — this challenge is your stage.",
+    "Create and post reels about your learning journey with Tutedude and stand a chance to win a Brand New iPhone 17.",
   checklist: [
     "Build your student profile",
     "Share your progress",
@@ -426,7 +426,7 @@ export const closing = {
   titleAccent: "could be you.",
   chips: ["Create", "Learn", "Share", "Win"],
   emberChip: "Win",
-  hashtag: "#30DayTutedudeChallenge",
+  hashtag: "#TutedudeiPhoneChallenge",
 };
 
 export const sections = [
