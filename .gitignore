@@ -36,10 +36,6 @@ yarn-error.log*
 # vercel
 .vercel
 
-# Claude Code (never commit AI assistant files)
-.claude/
-CLAUDE.md
-
 # typescript
 *.tsbuildinfo
 next-env.d.ts
