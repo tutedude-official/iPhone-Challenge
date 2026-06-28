@@ -65,8 +65,8 @@ export default function Home() {
           {/* ---- LEFT: text ---- */}
           <div className="flex w-full flex-col items-center lg:flex-1 lg:items-start">
             <motion.h1
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={isMobile ? false : { opacity: 0, y: 24 }}
+              animate={isMobile ? {} : { opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
               <span className="block font-display text-[clamp(1.1rem,4vw,2.2rem)] font-extrabold leading-tight tracking-tight text-white/80">
@@ -80,8 +80,8 @@ export default function Home() {
             </motion.h1>
 
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={isMobile ? false : { opacity: 0, y: 20 }}
+              animate={isMobile ? {} : { opacity: 1, y: 0 }}
               transition={{ delay: 0.25, duration: 0.7 }}
               className="mt-4 max-w-xs text-sm font-medium leading-relaxed text-white/70 sm:max-w-md sm:text-base"
             >
@@ -89,8 +89,8 @@ export default function Home() {
             </motion.p>
 
             <motion.button
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              initial={isMobile ? false : { opacity: 0 }}
+              animate={isMobile ? {} : { opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.5 }}
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.97 }}
@@ -106,6 +106,7 @@ export default function Home() {
               animate={isMobile ? {} : { y: [0, -14, 0] }}
               transition={{ repeat: Infinity, duration: 3.8, ease: "easeInOut" }}
               className="relative isolate"
+              style={isMobile ? { willChange: "auto" } : undefined}
             >
               {/* static light behind phone */}
               <div className="pointer-events-none absolute left-1/2 top-1/2 -z-10" style={{ transform: "translate(-50%, -50%)", width: "160%", height: "140%", borderRadius: "50%", background: "radial-gradient(ellipse at 50% 50%, rgba(237,193,104,0.55) 0%, rgba(180,60,220,0.22) 45%, transparent 72%)", filter: "blur(36px)" }} />

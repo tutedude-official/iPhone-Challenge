@@ -70,42 +70,28 @@ export default function SectionHowItWorks() {
               <div
                 className={`${CARD} group h-full p-4 sm:p-6 hover:-translate-y-1.5 hover:border-[#edc168]/30 hover:shadow-[0_0_28px_rgba(237,193,104,0.1)]`}
               >
-                <motion.span
-                  className="relative flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-b from-[#f7dd97] to-[#dca23a] text-base font-extrabold text-[#3a0f33]"
-                  initial={isMobile ? false : { scale: 0, rotate: -20, opacity: 0 }}
-                  whileInView={isMobile ? {} : { scale: 1, rotate: 0, opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    type: "spring",
-                    stiffness: 300,
-                    damping: 18,
-                    delay: i * 0.08,
-                  }}
-                  whileHover={
-                    isMobile
-                      ? {}
-                      : {
-                          scale: 1.2,
-                          rotate: [0, -10, 10, -6, 0],
-                          boxShadow: "0 0 24px rgba(237,193,104,0.7)",
-                          transition: { duration: 0.45, ease: "easeInOut" },
-                        }
-                  }
-                >
-                  {step.n}
-                  {!isMobile && (
+                {isMobile ? (
+                  <span className="relative flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-b from-[#f7dd97] to-[#dca23a] text-base font-extrabold text-[#3a0f33]">
+                    {step.n}
+                  </span>
+                ) : (
+                  <motion.span
+                    className="relative flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-b from-[#f7dd97] to-[#dca23a] text-base font-extrabold text-[#3a0f33]"
+                    initial={{ scale: 0, rotate: -20, opacity: 0 }}
+                    whileInView={{ scale: 1, rotate: 0, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ type: "spring", stiffness: 300, damping: 18, delay: i * 0.08 }}
+                    whileHover={{ scale: 1.2, rotate: [0, -10, 10, -6, 0], boxShadow: "0 0 24px rgba(237,193,104,0.7)", transition: { duration: 0.45, ease: "easeInOut" } }}
+                  >
+                    {step.n}
                     <motion.span
                       className="absolute inset-0 rounded-2xl bg-[#edc168]"
                       initial={{ opacity: 0.55, scale: 1 }}
                       animate={{ opacity: 0, scale: 1.7 }}
-                      transition={{
-                        duration: 0.9,
-                        delay: 0.3 + i * 0.1,
-                        ease: "easeOut",
-                      }}
+                      transition={{ duration: 0.9, delay: 0.3 + i * 0.1, ease: "easeOut" }}
                     />
-                  )}
-                </motion.span>
+                  </motion.span>
+                )}
                 <div className="mt-3 flex items-center gap-2">
                   <h3 className="text-lg font-bold">{step.title}</h3>
                   <Icon className="h-5 w-5 shrink-0 text-[#edc168]" />
