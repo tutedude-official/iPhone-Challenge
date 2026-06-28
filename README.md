@@ -1,90 +1,98 @@
-# Creator's Handbook — TuteDude iPhone Challenge
+<div align="center">
 
-An award-grade, cinematic, fully interactive web experience built from the
-official **TuteDude Creator's Handbook (2026 Edition)**. Every page of the
-handbook is reimagined as a unique animated section — the copy is preserved
-verbatim; only the presentation is transformed.
+<img src="https://raw.githubusercontent.com/rajnishpark03/iPhone-Challenge/main/public/iphone-17-prize.webp" alt="iPhone 17 Prize" width="320" />
 
-> _"Apple keynote meets an Awwwards Site of the Day."_
+# TuteDude Creator's Handbook — iPhone Challenge
+
+**A cinematic web experience built around TuteDude's official challenge handbook.**
+Every section is reimagined with animations, 3D, and a dark futuristic UI — the content stays true, the presentation goes all out.
+
+[![Live Site](https://img.shields.io/badge/Live%20Site-tutedude--challenge.vercel.app-black?style=for-the-badge&logo=vercel)](https://tutedude-challenge.vercel.app)
+
+</div>
 
 ---
 
-## ✨ Highlights
+## What this is
 
-- **Cinematic 3D hero** — a floating phone + trophy rendered with React Three
-  Fiber, dynamic lighting, sparkles and mouse parallax.
-- **Advanced custom cursor** — blob + dot with magnetic hover, stretch-on-speed,
-  text mode, click ripples, glow trail and contextual labels.
-- **Lenis smooth scroll** wired into a single GSAP `ScrollTrigger` ticker.
-- **A distinct animation language per section** — scroll-drawn timelines,
-  animated scoring bars, 3D tilt cards, spotlight cards, accordions, magnetic
-  buttons, infinite marquees, particle fields and aurora backgrounds.
-- **Dark, futuristic, glassmorphic** design system with organic gradients,
-  noise texture, animated grid and glow.
-- **Performance-minded** — dynamic import of the 3D scene, GPU-friendly canvas
-  particles (paused offscreen), `prefers-reduced-motion` honored throughout,
-  package-import optimization and code splitting.
-- **Responsive + accessible + SEO** — fluid typography, touch-aware cursor
-  fallback, semantic markup, Open Graph / Twitter metadata.
+I took the TuteDude Creator's Handbook PDF and turned it into an interactive website — not just a document dump, but something that actually feels good to scroll through. Think Apple keynote energy with glassmorphic UI, smooth scroll, and per-section animations.
 
-## 🧱 Tech Stack
+The content is verbatim from the handbook. The experience is not.
 
-| Area | Tooling |
-| --- | --- |
-| Framework | **Next.js 15** (App Router) + **React 19** |
-| Language | **TypeScript** |
-| Styling | **TailwindCSS** (custom design system) |
-| Animation | **Framer Motion**, **GSAP + ScrollTrigger**, **Motion One** primitives |
-| Smooth scroll | **Lenis** |
-| 3D | **Three.js** / **React Three Fiber** + **drei** |
-| Components | **ReactBits-style** primitives (re-implemented), shadcn-style patterns |
-| Icons | **Lucide**, **React Icons** |
+---
 
-## 🚀 Getting Started
+## What makes it different
+
+- A floating 3D iPhone + trophy in the hero, built with React Three Fiber — complete with dynamic lighting, sparkle particles, and mouse parallax
+- A custom cursor that stretches, glows, changes on hover, and shows ripples on click — because defaults are boring
+- Every section has its own animation personality: scroll-triggered timelines, 3D tilt cards, animated scoring bars, spotlight cards, infinite marquees, particle fields
+- Lenis smooth scroll hooked into GSAP's ScrollTrigger so everything feels physically correct
+- Dark, futuristic design system — glassmorphism, organic gradients, noise texture, animated grid lines
+
+---
+
+## Tech Stack
+
+| | Tool |
+|---|---|
+| Framework | Next.js 15 (App Router) + React 19 |
+| Language | TypeScript |
+| Styling | Tailwind CSS |
+| Animation | Framer Motion + GSAP + ScrollTrigger |
+| Smooth Scroll | Lenis |
+| 3D | Three.js / React Three Fiber |
+| Icons | Lucide + React Icons |
+
+---
+
+## Run locally
 
 ```bash
 npm install
-npm run dev      # http://localhost:3000
+npm run dev
 ```
 
-Build for production:
-
-```bash
-npm run build && npm start
-```
-
-## 📁 Structure
-
-```
-app/
-  layout.tsx          # fonts, SEO, global chrome (cursor, aurora, nav, dock)
-  page.tsx            # assembles every handbook section in order
-  globals.css         # design tokens, glass, aurora, cursor styles
-components/
-  providers/          # Lenis smooth-scroll provider
-  cursor/             # advanced custom cursor
-  three/              # React Three Fiber hero scene
-  ui/                 # reusable animation primitives (ReactBits-style)
-  sections/           # one component per handbook page
-lib/
-  content.ts          # ALL handbook copy, extracted verbatim
-  gsap.ts             # GSAP + ScrollTrigger registration
-  utils.ts            # cn(), lerp(), clamp()
-```
-
-## 📝 Content fidelity
-
-All titles, descriptions, lists, FAQs, rules, the timeline, prizes and scoring
-live in [`lib/content.ts`](lib/content.ts), transcribed directly from the
-handbook PDF. Nothing was summarized, rewritten or removed — the experience is a
-pure visual re-imagining.
-
-## ♿ Accessibility & motion
-
-The site fully respects `prefers-reduced-motion`: smooth scroll, particle
-loops, split-text and scrubbed timelines all degrade to instant, static
-states. The custom cursor is disabled on touch / coarse-pointer devices.
+Opens at `http://localhost:3000`
 
 ---
 
-Built for the **#30DayTuteDudeChallenge**.
+## Project structure
+
+```
+app/
+  layout.tsx        # global chrome: cursor, nav, aurora, SEO
+  page.tsx          # all handbook sections assembled in order
+  globals.css       # design tokens, glass utilities, cursor styles
+
+components/
+  providers/        # Lenis smooth-scroll setup
+  cursor/           # custom cursor (blob + dot + behaviors)
+  three/            # React Three Fiber hero scene
+  ui/               # reusable animation primitives
+  sections/         # one component per handbook section
+
+lib/
+  content.ts        # all handbook copy, verbatim from the PDF
+  gsap.ts           # GSAP + ScrollTrigger init
+  utils.ts          # cn(), lerp(), clamp()
+```
+
+---
+
+## Content
+
+Everything — titles, rules, prize breakdown, scoring rubric, FAQs, timeline — lives in `lib/content.ts`, copied directly from the official PDF. Nothing rewritten, nothing summarized.
+
+---
+
+## Accessibility
+
+`prefers-reduced-motion` is respected everywhere — animations degrade to static states, smooth scroll turns off, particles pause. The custom cursor is automatically replaced with the native cursor on touch/coarse-pointer devices.
+
+---
+
+<div align="center">
+
+Built for the **#30DayTuteDudeChallenge**
+
+</div>

@@ -43,3 +43,7 @@ CLAUDE.md
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Lighthouse reports (local testing only)
+lighthouse-vercel.html
+*.report.html
