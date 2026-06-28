@@ -1,7 +1,7 @@
 # Creator's Handbook — TuteDude iPhone Challenge
 
 An award-grade, cinematic, fully interactive web experience built from the
-official **TuteDude Creator's Handbook (2024 Edition)**. Every page of the
+official **TuteDude Creator's Handbook (2026 Edition)**. Every page of the
 handbook is reimagined as a unique animated section — the copy is preserved
 verbatim; only the presentation is transformed.
 
