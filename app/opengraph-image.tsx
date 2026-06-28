@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
-export const runtime = "edge";
-export const alt = "Tutedude iPhone Challenge – Win iPhone 17 worth ₹82,900";
+export const dynamic = "force-static";
+export const alt ="Tutedude iPhone Challenge – Win iPhone 17 worth ₹82,900";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
