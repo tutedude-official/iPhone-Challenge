@@ -441,9 +441,9 @@
    components (matchMedia max-width:767px). Desktop is intentionally untouched.
 --------------------------------------------------------------------------- */
 @media (max-width: 767px) {
-  *:not(.star-twinkle),
-  *:not(.star-twinkle)::before,
-  *:not(.star-twinkle)::after {
+  *:not(.star-twinkle):not(.chip-shine),
+  *:not(.star-twinkle):not(.chip-shine)::before,
+  *:not(.star-twinkle):not(.chip-shine)::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     animation-delay: 0ms !important;
@@ -455,6 +455,17 @@
   .flashlight {
     display: none !important;
   }
+}
+
+/* ── Chip shine — CSS-only left→right light sweep for mobile ── */
+@keyframes chip-shine {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(700%); }
+}
+
+.chip-shine {
+  animation: chip-shine 2.4s linear infinite;
+  will-change: transform;
 }
 
 /* ── Hero star twinkle — CSS-only, GPU-composited (opacity + transform only) ── */

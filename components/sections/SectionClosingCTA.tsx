@@ -32,35 +32,44 @@ export default function SectionClosingCTA() {
 
         {/* chips row */}
         <div className="mt-5 flex justify-center sm:mt-8">
-          <div className="relative inline-flex flex-wrap items-center gap-3">
-            {/* connecting line — desktop only */}
-            <div className="pointer-events-none absolute inset-x-0 top-1/2 hidden -translate-y-1/2 overflow-hidden sm:block">
-              <div className="h-1 rounded-full bg-gradient-to-r from-transparent via-[#edc168]/40 to-transparent" />
-              <motion.div
-                className="absolute top-0 h-1 w-8 rounded-full"
+          <div className="relative inline-flex items-center gap-1.5 sm:gap-3">
+            {/* connecting line — visible on both mobile and desktop */}
+            <div className="pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2 overflow-hidden">
+              <div className="h-px rounded-full bg-gradient-to-r from-transparent via-[#edc168]/40 to-transparent sm:h-1" />
+              {/* mobile: CSS-animated shine */}
+              <div
+                className="chip-shine absolute top-0 h-px w-10 rounded-full sm:hidden"
                 style={{
-                  background:
-                    "linear-gradient(90deg, transparent, #fff5cc, #edc168, #fff5cc, transparent)",
-                  boxShadow:
-                    "0 0 12px 4px rgba(237,193,104,0.9), 0 0 24px 8px rgba(237,193,104,0.4)",
+                  background: "linear-gradient(90deg, transparent, #fff5cc, #edc168, #fff5cc, transparent)",
+                  boxShadow: "0 0 8px 3px rgba(237,193,104,0.85)",
                 }}
-                initial={{ left: "0%" }}
-                animate={isMobile ? {} : { left: ["0%", "100%"] }}
-                transition={{ repeat: Infinity, duration: 2.8, ease: "linear" }}
               />
+              {/* desktop: Framer Motion shine */}
+              {!isMobile && (
+                <motion.div
+                  className="absolute top-0 h-1 w-8 rounded-full"
+                  style={{
+                    background: "linear-gradient(90deg, transparent, #fff5cc, #edc168, #fff5cc, transparent)",
+                    boxShadow: "0 0 12px 4px rgba(237,193,104,0.9), 0 0 24px 8px rgba(237,193,104,0.4)",
+                  }}
+                  initial={{ left: "0%" }}
+                  animate={{ left: ["0%", "100%"] }}
+                  transition={{ repeat: Infinity, duration: 2.8, ease: "linear" }}
+                />
+              )}
             </div>
 
             {chips.map((chip) => (
               <span
                 key={chip}
-                className={`relative z-10 inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-base font-semibold ${
+                className={`relative z-10 inline-flex items-center gap-1 rounded-full px-3 py-1.5 text-xs font-semibold sm:gap-2 sm:px-5 sm:py-2.5 sm:text-base ${
                   chip === emberChip ? GOLD_BTN : `${CARD} text-white/85`
                 }`}
               >
-                {chip === "Learn" && <GraduationCap className="h-4 w-4" />}
-                {chip === "Create" && <Clapperboard className="h-4 w-4" />}
-                {chip === "Share" && <Share2 className="h-4 w-4" />}
-                {chip === emberChip && <Trophy className="h-4 w-4" />}
+                {chip === "Learn" && <GraduationCap className="h-3 w-3 sm:h-4 sm:w-4" />}
+                {chip === "Create" && <Clapperboard className="h-3 w-3 sm:h-4 sm:w-4" />}
+                {chip === "Share" && <Share2 className="h-3 w-3 sm:h-4 sm:w-4" />}
+                {chip === emberChip && <Trophy className="h-3 w-3 sm:h-4 sm:w-4" />}
                 {chip}
               </span>
             ))}
