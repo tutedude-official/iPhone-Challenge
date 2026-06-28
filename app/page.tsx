@@ -237,9 +237,9 @@ export default function Home() {
 
         <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 sm:grid-cols-2 sm:px-8 lg:grid-cols-4">
           <div>
-            <h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-white/80">
+            <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-white/80">
               Other Links
-            </h4>
+            </h3>
             <ul className="space-y-2 text-sm text-white/55">
               {([
                 { label: "About Us",        href: "https://tutedude.com/about" },
@@ -262,9 +262,9 @@ export default function Home() {
           </div>
 
           <div>
-            <h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-white/80">
+            <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-white/80">
               Social Links
-            </h4>
+            </h3>
             <div className="flex gap-3">
               {([
                 { label: "LinkedIn",  href: "https://in.linkedin.com/company/tutedudeofficial",  path: "M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z M4 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" },
@@ -289,9 +289,9 @@ export default function Home() {
           </div>
 
           <div>
-            <h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-white/80">
+            <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-white/80">
               Contact Us
-            </h4>
+            </h3>
             <ul className="space-y-3 text-sm text-white/55">
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-[#edc168]" /> support@tutedude.com
@@ -306,15 +306,15 @@ export default function Home() {
           </div>
 
           <div>
-            <h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-white/80">
+            <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-white/80">
               Registered Office
-            </h4>
+            </h3>
             <p className="flex items-start gap-2 text-sm leading-relaxed text-white/55">
               <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#edc168]" /> 1st floor, AltF, Orchid Business Park, Central Park II, Sector 48, Gurugram, Haryana 122018
             </p>
           </div>
         </div>
-        <p className="border-t border-white/5 py-6 text-center text-xs text-white/35">
+        <p className="border-t border-white/5 py-6 text-center text-xs text-white/55">
           © {new Date().getFullYear()} {meta.brand} · {meta.challengeTag}
         </p>
       </footer>

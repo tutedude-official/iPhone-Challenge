@@ -141,7 +141,7 @@ export default function SectionPeopleParticipating() {
         ← swipe to see more →
       </p>
 
-      {/* scroll dots */}
+      {/* scroll dots — outer span is the touch target (min 24×24px), inner span is the visual dot */}
       <div className="mt-4 flex justify-center gap-1.5">
         {Array.from({ length: SEGMENTS }, (_, seg) => (
           <button
@@ -153,10 +153,12 @@ export default function SectionPeopleParticipating() {
               const max = el.scrollWidth - el.clientWidth;
               el.scrollTo({ left: (max * seg) / (SEGMENTS - 1), behavior: "smooth" });
             }}
-            className={`h-1.5 rounded-full transition-all duration-300 ${
-              activeSeg === seg ? "w-5 bg-[#edc168]" : "w-1.5 bg-white/20"
-            }`}
-          />
+            className="flex h-6 w-6 items-center justify-center"
+          >
+            <span className={`block rounded-full transition-all duration-300 ${
+              activeSeg === seg ? "h-1.5 w-5 bg-[#edc168]" : "h-1.5 w-1.5 bg-white/20"
+            }`} />
+          </button>
         ))}
       </div>
     </section>
