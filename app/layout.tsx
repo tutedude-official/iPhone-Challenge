@@ -106,16 +106,7 @@ export default function RootLayout({
       data-theme="dark"
       className={`${inter.variable} ${sora.variable} ${mono.variable}`}
     >
-      <head>
-        {/* LCP image preload with fetchpriority=high — Next.js 15 doesn't add this automatically */}
-        <link
-          rel="preload"
-          as="image"
-          href="/iphone-17-prize.webp"
-          // @ts-expect-error fetchpriority is valid HTML but not in React types yet
-          fetchpriority="high"
-        />
-      </head>
+      <head />
       <body className="min-h-screen bg-canvas text-foreground antialiased">
         <MotionProvider>
           <SiteChrome>{children}</SiteChrome>
