@@ -18,7 +18,7 @@ export default function SectionClosingCTA() {
       <div className="section-grid" />
       <Reveal direction="up">
         <div className="mb-6 flex items-center justify-center gap-3">
-          <Image src="/tutedudelogo.png" alt="Tutedude" width={36} height={36} />
+          <Image src="/tutedudelogo.webp" alt="Tutedude" width={36} height={36} />
           <span className="font-display text-lg font-extrabold tracking-tight text-white/80">
             Tutedude
           </span>

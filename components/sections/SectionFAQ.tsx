@@ -113,9 +113,9 @@ export default function SectionFAQ() {
                       <span
                         className={`rounded-full px-3 py-1 text-xs font-bold ${
                           isYes
-                            ? "bg-emerald-500 text-white"
+                            ? "bg-emerald-700 text-white"
                             : isNo
-                            ? "bg-rose-500 text-white"
+                            ? "bg-rose-700 text-white"
                             : "bg-[#edc168]/20 text-[#edc168] border border-[#edc168]/30"
                         }`}
                       >

@@ -42,7 +42,7 @@ function PostCard({ code }: { code: string }) {
           obs.disconnect();
         }
       },
-      { rootMargin: "200px" }
+      { rootMargin: "0px" }
     );
     obs.observe(el);
     return () => obs.disconnect();
@@ -56,7 +56,7 @@ function PostCard({ code }: { code: string }) {
           <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#edc168]/15 text-[#edc168]">
             <InstagramIcon className="h-4 w-4" />
           </span>
-          <span className="text-xs font-semibold text-white/60">Instagram Reel</span>
+          <span className="text-xs font-semibold text-white/60">INSTAGRAM</span>
         </div>
         <a href={url} target="_blank" rel="noopener noreferrer"
           className="text-[9px] font-bold uppercase tracking-widest text-[#edc168] hover:opacity-75 transition-opacity">
@@ -90,7 +90,7 @@ function PostCard({ code }: { code: string }) {
 
 export default function SectionPeopleParticipating() {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const [progress, setProgress] = useState(0); // 0–1
+  const [progress, setProgress] = useState(0);
   const isMobile = useIsMobile();
   const SEGMENTS = isMobile ? 3 : 2;
 
@@ -141,7 +141,7 @@ export default function SectionPeopleParticipating() {
         ← swipe to see more →
       </p>
 
-      {/* scroll dots — outer span is the touch target (min 24×24px), inner span is the visual dot */}
+      {/* scroll dots */}
       <div className="mt-4 flex justify-center gap-1.5">
         {Array.from({ length: SEGMENTS }, (_, seg) => (
           <button

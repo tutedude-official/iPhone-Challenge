@@ -28,7 +28,7 @@ const steps: { n: string; title: string; description: string }[] = [
     n: "4",
     title: "Tag Tutedude",
     description:
-      "Tag @tutedudeofficial and use the official challenge hashtag #TutedudeiPhoneChallenge in your reel.",
+      "Tag tutedudeofficial and use the official challenge hashtag #TutedudeiPhoneChallenge in your reel.",
   },
   {
     n: "5",

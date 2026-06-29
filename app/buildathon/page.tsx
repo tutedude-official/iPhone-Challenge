@@ -157,7 +157,7 @@ export default function BuildathonPage() {
       <header className="sticky top-0 z-50 border-b border-white/[0.06] bg-[#150920]/70 backdrop-blur-2xl">
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
           <a href="/" className="flex items-center gap-2.5">
-            <Image src="/tutedudelogo.png" alt="Tutedude" width={32} height={32} />
+            <Image src="/tutedudelogo.webp" alt="Tutedude" width={32} height={32} />
             <span className="text-lg font-bold tracking-tight">Tutedude</span>
           </a>
           <div className="flex items-center gap-3">
@@ -471,7 +471,7 @@ export default function BuildathonPage() {
         <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 sm:grid-cols-2 sm:px-8 lg:grid-cols-4">
           <div>
             <div className="mb-4 flex items-center gap-2.5">
-              <Image src="/tutedudelogo.png" alt="Tutedude" width={30} height={30} />
+              <Image src="/tutedudelogo.webp" alt="Tutedude" width={30} height={30} />
               <span className="text-lg font-bold">Tutedude</span>
             </div>
             <p className="text-sm leading-relaxed text-white/45">

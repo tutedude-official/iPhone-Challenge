@@ -23,8 +23,7 @@ const mono = JetBrains_Mono({
 });
 
 const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ||
-  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://tutedude.com");
+  process.env.NEXT_PUBLIC_SITE_URL || "https://tutedude-iphone-challenge.pages.dev";
 
 const SITE_TITLE = "Win iPhone 17 – Tutedude Instagram Reel Challenge 2025";
 const SITE_DESC =
@@ -106,7 +105,9 @@ export default function RootLayout({
       data-theme="dark"
       className={`${inter.variable} ${sora.variable} ${mono.variable}`}
     >
-      <head />
+      <head>
+        <link rel="preload" href="/iphone-17-prize.webp" as="image" fetchPriority="high" />
+      </head>
       <body className="min-h-screen bg-canvas text-foreground antialiased">
         <MotionProvider>
           <SiteChrome>{children}</SiteChrome>
