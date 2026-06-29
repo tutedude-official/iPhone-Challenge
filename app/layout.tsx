@@ -13,7 +13,7 @@ const inter = Inter({
 const sora = Sora({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["700", "800"],
+  weight: ["800"],
   display: "swap",
 });
 
@@ -100,9 +100,7 @@ export default function RootLayout({
       data-theme="dark"
       className={`${inter.variable} ${sora.variable}`}
     >
-      <head>
-        <link rel="preload" href="/iphone-17-prize.webp" as="image" fetchPriority="high" />
-      </head>
+      <head />
       <body className="min-h-screen bg-canvas text-foreground antialiased">
         <MotionProvider>
           <SiteChrome>{children}</SiteChrome>

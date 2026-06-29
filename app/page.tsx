@@ -222,8 +222,9 @@ export default function Home() {
             <div className="section-grid" />
             <p
               aria-hidden="true"
-              className="whitespace-nowrap text-center font-display font-extrabold leading-none tracking-tight text-white/[0.06]"
-              style={{ fontSize: "clamp(3.5rem, 18vw, 18rem)" }}
+              role="presentation"
+              className="whitespace-nowrap text-center font-display font-extrabold leading-none tracking-tight text-white"
+              style={{ fontSize: "clamp(3.5rem, 18vw, 18rem)", opacity: 0.06 }}
             >
               Tutedude
             </p>
