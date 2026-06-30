@@ -3,6 +3,7 @@ import { Inter, Sora } from "next/font/google";
 import "./globals.css";
 
 import MotionProvider from "@/components/providers/MotionProvider";
+import AuthProviderWrapper from "@/components/providers/AuthProvider";
 import SiteChrome from "@/components/SiteChrome";
 
 const inter = Inter({
@@ -102,9 +103,11 @@ export default function RootLayout({
     >
       <head />
       <body className="min-h-screen bg-canvas text-foreground antialiased">
-        <MotionProvider>
-          <SiteChrome>{children}</SiteChrome>
-        </MotionProvider>
+        <AuthProviderWrapper>
+          <MotionProvider>
+            <SiteChrome>{children}</SiteChrome>
+          </MotionProvider>
+        </AuthProviderWrapper>
       </body>
     </html>
   );

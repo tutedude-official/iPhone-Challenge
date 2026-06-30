@@ -5,15 +5,14 @@ import { useEffect, useState, useRef } from "react";
 import { m, AnimatePresence } from "framer-motion";
 import { Calendar, BookOpen, ExternalLink, Send, CheckCircle2 } from "lucide-react";
 import { useIsMobile } from "@/lib/useIsMobile";
+import { useAuth } from "@/lib/useAuth";
+import { useRouter } from "next/navigation";
 import { GOLD, GOLD_BTN, CARD } from "@/lib/tokens";
 
 const CHALLENGE_START = new Date("2026-07-01T00:00:00+05:30").getTime();
 const CHALLENGE_END   = new Date("2026-07-31T23:59:59+05:30").getTime();
 const TOTAL_DAYS      = 31;
 
-/* placeholder — replace with real auth user when auth is wired */
-const USER_NAME  = "Rajnish";
-const USER_EMAIL = "rajnish@example.com";
 
 const AVATAR_COLORS = [
   "#e03c6e","#e05c3c","#d4a017","#3cb87a","#3c8fe0",
@@ -130,9 +129,28 @@ const CHECKLIST: React.ReactNode[] = [
 
 export default function DashboardPage() {
   const isMobile                    = useIsMobile();
+  const { user, loading: authLoading, hasCourses, logout } = useAuth();
+  const router                      = useRouter();
   const { t: countdown, phase }     = useCountdown();
   const { pct, daysLeft, daysGone } = useChallengeProgress();
   const confettiRef                 = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const USER_NAME  = user?.name || "User";
+  const USER_EMAIL = user?.email || "user@example.com";
+
+  // Redirect to login if not authenticated
+  useEffect(() => {
+    if (!authLoading && !user) {
+      router.push("/login");
+    }
+  }, [authLoading, user, router]);
+
+  // Redirect to not-enrolled if user has no courses
+  useEffect(() => {
+    if (!authLoading && user && !hasCourses) {
+      router.push("/not-enrolled");
+    }
+  }, [authLoading, user, hasCourses, router]);
 
   useEffect(() => {
     if (isMobile) return;
@@ -152,6 +170,15 @@ export default function DashboardPage() {
     confettiRef.current = setInterval(spawn, 900);
     return () => { if (confettiRef.current) clearInterval(confettiRef.current); };
   }, [isMobile]);
+
+  // Show loading while verifying session
+  if (authLoading) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-[#2B0A30]">
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-[#edc168] border-t-transparent" />
+      </div>
+    );
+  }
 
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-[#2B0A30] font-sans text-white">
@@ -173,6 +200,12 @@ export default function DashboardPage() {
               {firstLetter(USER_EMAIL)}
             </div>
             <span className="max-w-[80px] truncate text-sm font-semibold text-white/90 sm:max-w-none">{USER_NAME}</span>
+            <button
+              onClick={() => logout().then(() => router.push("/login"))}
+              className="ml-2 rounded-lg border border-white/10 bg-white/5 px-2.5 py-1 text-xs font-semibold text-white/60 transition-colors hover:bg-white/10 hover:text-white/90"
+            >
+              Logout
+            </button>
           </div>
         </nav>
       </header>
@@ -332,15 +365,14 @@ export default function DashboardPage() {
             </ul>
             <div className="mt-6">
               <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLSc61ka0A0801mLXZqnTQek_83lNsptz_-cmV6CRWYYETdKLFg/viewform?usp=publish-editor"
-                target="_blank" rel="noopener noreferrer"
+                href="/dashboard/submit"
                 className={`inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-sm font-bold ${GOLD_BTN}`}
               >
                 <Send className="h-4 w-4" /> Submit Your Reel
               </a>
             </div>
             <p className="mt-3 text-[0.65rem] font-semibold text-white/45">
-              Clicking &ldquo;Submit Reel&rdquo; opens the official Google Form — fill in your details there to complete your entry.
+              Fill in your details and submit your reel link to complete your entry.
             </p>
           </m.div>
 
