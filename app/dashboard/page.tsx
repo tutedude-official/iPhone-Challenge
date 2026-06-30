@@ -151,11 +151,11 @@ export default function DashboardPage() {
             <Image src="/tutedudelogo.webp" alt="Tutedude" width={30} height={30} />
             <span className="text-lg font-bold tracking-tight">Tutedude</span>
           </a>
-          <div className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#edc168]/20 text-xs font-bold text-[#edc168]">
+          <div className="flex items-center gap-2 rounded-full bg-white/[0.08] px-2 py-1 pr-3">
+            <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white text-xs font-extrabold text-[#2B0A30]">
               {USER_NAME.charAt(0).toUpperCase()}
             </div>
-            <span className="text-sm font-semibold text-white/80">{USER_NAME}</span>
+            <span className="max-w-[80px] truncate text-sm font-semibold text-white sm:max-w-none">{USER_NAME}</span>
           </div>
         </nav>
       </header>
