@@ -275,7 +275,7 @@ export default function DashboardPage() {
                 <div className="my-1 h-px bg-[#edc168]/20" />
                 <p className="text-[7px] font-bold uppercase tracking-wider text-white/55 sm:text-[9px]">🎉 Win for FREE</p>
               </div>
-              <div className="hidden sm:block">
+              <div>
                 {STARS.map((s, i) => (
                   <div key={i} style={{ position:"absolute", top:s.top, left:s.left, pointerEvents:"none" }}>
                     {s.glow && <div style={{ position:"absolute", inset:-s.size, borderRadius:"50%", background:`radial-gradient(circle,${s.color}55 0%,transparent 70%)`, filter:"blur(8px)" }} />}
