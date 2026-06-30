@@ -441,9 +441,9 @@
    components (matchMedia max-width:767px). Desktop is intentionally untouched.
 --------------------------------------------------------------------------- */
 @media (max-width: 767px) {
-  *:not(.chip-shine),
-  *:not(.chip-shine)::before,
-  *:not(.chip-shine)::after {
+  *:not(.chip-shine):not(.star-twinkle),
+  *:not(.chip-shine):not(.star-twinkle)::before,
+  *:not(.chip-shine):not(.star-twinkle)::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     animation-delay: 0ms !important;
@@ -452,8 +452,7 @@
   }
 
   .wander-rocket,
-  .flashlight,
-  .star-twinkle {
+  .flashlight {
     display: none !important;
   }
 }
