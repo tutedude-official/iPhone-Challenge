@@ -42,7 +42,7 @@ export default function SectionRules() {
           ].map(({ title, items, isDo }) => (
             <Reveal key={title} direction={isDo ? "left" : "right"}>
               <div
-                className={`${CARD} h-full p-4 sm:p-7 ${
+                className={`${CARD} h-full p-4 sm:p-6 ${
                   isDo ? "ring-1 ring-emerald-400/20" : "ring-1 ring-rose-400/20"
                 }`}
               >

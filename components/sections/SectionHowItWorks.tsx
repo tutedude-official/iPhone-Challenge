@@ -66,9 +66,9 @@ export default function SectionHowItWorks() {
         {steps.map((step, i) => {
           const Icon = stepIcons[i] ?? UserPlus;
           return (
-            <RevealItem key={step.n}>
+            <RevealItem key={step.n} className="h-full">
               <div
-                className={`${CARD} group h-full p-4 sm:p-6 hover:-translate-y-1.5 hover:border-[#edc168]/30 hover:shadow-[0_0_28px_rgba(237,193,104,0.1)]`}
+                className={`${CARD} group h-full min-h-[13rem] sm:min-h-0 p-4 sm:p-6 hover:-translate-y-1.5 hover:border-[#edc168]/30 hover:shadow-[0_0_28px_rgba(237,193,104,0.1)]`}
               >
                 {isMobile ? (
                   <span className="relative flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-b from-[#f7dd97] to-[#dca23a] text-base font-extrabold text-[#3a0f33]">

@@ -84,7 +84,7 @@ export default function SectionWhoCanJoin() {
         stagger={0.07}
       >
         {cards.slice(0, 4).map(({ title, description, Icon }) => (
-          <RevealItem key={title}>
+          <RevealItem key={title} className="h-full">
             <div className={`${CARD} group h-full p-4 sm:p-6 hover:-translate-y-1.5 hover:border-[#edc168]/30 hover:shadow-[0_0_28px_rgba(237,193,104,0.1)]`}>
               <span className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl border border-[#edc168]/25 bg-[#edc168]/10 text-[#edc168] transition-transform duration-300 group-hover:scale-110 sm:mb-4 sm:h-12 sm:w-12 sm:rounded-2xl">
                 <Icon className="h-6 w-6" />
@@ -101,8 +101,8 @@ export default function SectionWhoCanJoin() {
         className="mx-auto mt-3 grid grid-cols-2 gap-3 sm:mt-5 sm:gap-5 lg:w-3/4 lg:grid-cols-3"
         stagger={0.07}
       >
-        {cards.slice(4).map(({ title, description, Icon }) => (
-          <RevealItem key={title}>
+        {cards.slice(4).map(({ title, description, Icon }, idx) => (
+          <RevealItem key={title} className={`h-full${idx === 2 ? " col-span-2 lg:col-span-1" : ""}`}>
             <div className={`${CARD} group h-full p-4 sm:p-6 hover:-translate-y-1.5 hover:border-[#edc168]/30 hover:shadow-[0_0_28px_rgba(237,193,104,0.1)]`}>
               <span className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl border border-[#edc168]/25 bg-[#edc168]/10 text-[#edc168] transition-transform duration-300 group-hover:scale-110 sm:mb-4 sm:h-12 sm:w-12 sm:rounded-2xl">
                 <Icon className="h-6 w-6" />

@@ -30,9 +30,9 @@ export default function SectionPrizes() {
           {prizes.cards.map((card, i) => {
             const Icon = prizeIcons[i] ?? Sparkles;
             return (
-              <RevealItem key={card.title}>
+              <RevealItem key={card.title} className="h-full">
                 <div
-                  className={`${CARD} group h-full p-4 sm:p-7 hover:-translate-y-1.5 hover:border-[#edc168]/30 hover:shadow-[0_0_28px_rgba(237,193,104,0.1)]`}
+                  className={`${CARD} group h-full p-4 sm:p-6 hover:-translate-y-1.5 hover:border-[#edc168]/30 hover:shadow-[0_0_28px_rgba(237,193,104,0.1)]`}
                 >
                   <span className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl border border-[#edc168]/25 bg-[#edc168]/10 text-[#edc168] transition-transform group-hover:scale-110 sm:mb-5 sm:h-12 sm:w-12 sm:rounded-2xl">
                     <Icon className="h-6 w-6" />
@@ -45,11 +45,11 @@ export default function SectionPrizes() {
               </RevealItem>
             );
           })}
-          <RevealItem>
+          <RevealItem className="h-full">
             <div
-              className={`${CARD} group h-full p-7 hover:-translate-y-1.5 hover:border-[#edc168]/30 hover:shadow-[0_0_28px_rgba(237,193,104,0.1)]`}
+              className={`${CARD} group h-full p-4 sm:p-6 hover:-translate-y-1.5 hover:border-[#edc168]/30 hover:shadow-[0_0_28px_rgba(237,193,104,0.1)]`}
             >
-              <span className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-[#edc168]/25 bg-[#edc168]/10 text-[#edc168] transition-transform group-hover:scale-110">
+              <span className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl border border-[#edc168]/25 bg-[#edc168]/10 text-[#edc168] transition-transform group-hover:scale-110 sm:mb-5 sm:h-12 sm:w-12 sm:rounded-2xl">
                 <Award className="h-6 w-6" />
               </span>
               <h3 className="text-xl font-bold">{prizes.hallOfFame.title}</h3>
