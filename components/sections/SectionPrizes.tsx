@@ -89,7 +89,7 @@ export default function SectionPrizes() {
                   {prizes.grand.description}
                 </p>
                 <button
-                  className={`mt-5 rounded-full px-7 py-3 text-sm font-bold text-white transition-transform hover:-translate-y-0.5 bg-[#3a0f33] sm:mt-7`}
+                  className={`mt-5 hidden rounded-full px-7 py-3 text-sm font-bold text-white transition-transform hover:-translate-y-0.5 bg-[#3a0f33] sm:mt-7 sm:inline-flex`}
                 >
                   Register Now for Free!
                 </button>

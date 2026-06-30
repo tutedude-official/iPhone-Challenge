@@ -1,6 +1,7 @@
 "use client";
 
 import { useIsMobile } from "@/lib/useIsMobile";
+import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { m as motion } from "framer-motion";
 import {
@@ -77,9 +78,22 @@ const jsonLd = {
 /* ---------------------------------------------------------------- page --- */
 export default function Home() {
   const isMobile = useIsMobile();
+  const heroButtonRef = useRef<HTMLButtonElement>(null);
+  const [showStickyBar, setShowStickyBar] = useState(false);
+
+  useEffect(() => {
+    const el = heroButtonRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setShowStickyBar(!entry.isIntersecting),
+      { threshold: 0 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-[#2b0a30] font-sans text-white">
+    <div className="relative min-h-screen overflow-x-hidden bg-[#2b0a30] font-sans text-white pb-[5.5rem] sm:pb-0">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {/* fixed background: gradient + grid + glows */}
       <div className="pointer-events-none fixed inset-0 -z-10">
@@ -122,7 +136,7 @@ export default function Home() {
                 Create and post reels about your learning journey with Tutedude and stand a chance to win a Brand New iPhone 17.
               </motion.p>
 
-            <motion.button whileHover={isMobile ? {} : { scale: 1.05, y: -2 }} whileTap={isMobile ? {} : { scale: 0.97 }} className={`mt-6 rounded-full px-6 py-3 text-sm font-bold sm:mt-8 sm:px-10 sm:py-4 sm:text-base ${GOLD_BTN}`}>
+            <motion.button ref={heroButtonRef} whileHover={isMobile ? {} : { scale: 1.05, y: -2 }} whileTap={isMobile ? {} : { scale: 0.97 }} className={`mt-6 rounded-full px-6 py-3 text-sm font-bold sm:mt-8 sm:px-10 sm:py-4 sm:text-base ${GOLD_BTN}`}>
                 Register Now for Free!
               </motion.button>
           </div>
@@ -148,7 +162,7 @@ export default function Home() {
               const inner = (
                 <>
                   <div className="pointer-events-none absolute left-1/2 top-1/2 -z-10" style={{ transform: "translate(-50%, -50%)", width: "160%", height: "140%", borderRadius: "50%", background: "radial-gradient(ellipse at 50% 50%, rgba(237,193,104,0.55) 0%, rgba(180,60,220,0.22) 45%, transparent 72%)", filter: "blur(36px)" }} />
-                  <Image src="/iphone-17-prize.webp" alt="iPhone 17" width={800} height={800} priority fetchPriority="high" sizes="(max-width: 640px) 200px, (max-width: 1024px) 300px, 420px" className="h-[200px] max-w-[90vw] w-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.4)] sm:h-[300px] lg:h-[420px]" />
+                  <Image src="/iphone-17-prize.webp" alt="iPhone 17" width={600} height={600} priority fetchPriority="high" sizes="(max-width: 640px) 200px, (max-width: 1024px) 300px, 420px" className="h-[200px] max-w-[90vw] w-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.4)] sm:h-[300px] lg:h-[420px]" />
                   <div className="absolute bottom-[10%] left-1/2 w-28 -translate-x-1/2 rounded-xl border-2 border-[#edc168] bg-[#2b0a30] p-2 shadow-[0_0_24px_rgba(237,193,104,0.35)] sm:w-40 sm:-rotate-[5deg] sm:rounded-2xl sm:p-3 lg:w-48">
                     <p className="text-[7px] font-bold uppercase tracking-widest text-[#edc168]/80 sm:text-[9px]">Grand Prize Worth</p>
                     <p className={`mt-0.5 font-display text-lg font-extrabold leading-none sm:text-2xl lg:text-3xl ${GOLD}`}>₹82,900</p>
@@ -210,6 +224,18 @@ export default function Home() {
       <SectionRules />
       <SectionFAQ />
       <SectionClosingCTA />
+
+      {/* ── mobile sticky register bar (appears after hero scrolls away) ── */}
+      <div className={`fixed bottom-0 left-0 right-0 z-50 transition-transform duration-300 sm:hidden ${showStickyBar ? "translate-y-0" : "translate-y-full"}`}>
+        <div className="border-t border-white/10 bg-[#2b0a30]/95 backdrop-blur-xl px-4 py-3 flex flex-col items-center gap-1.5">
+          <span className="text-[0.6rem] font-bold uppercase tracking-[0.18em] text-[#edc168]">
+            ✦ Exclusive for Tutedude Learners
+          </span>
+          <button className={`w-full rounded-full py-3.5 text-sm font-bold ${GOLD_BTN}`}>
+            Register Now for Free!
+          </button>
+        </div>
+      </div>
 
       {/* ---------------------------------------------------------- footer --- */}
       <footer className="relative overflow-hidden border-t border-white/5 bg-[#1c0922]/60">

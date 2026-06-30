@@ -127,7 +127,7 @@ function PhotoCard({ grad, children }: { grad: string; children?: React.ReactNod
 /* ---------------------------------------------------------------- page --- */
 export default function BuildathonPage() {
   return (
-    <div className="relative min-h-screen overflow-hidden bg-[#150920] font-sans text-white">
+    <div className="relative min-h-screen overflow-hidden bg-[#150920] font-sans text-white pb-[5.5rem] sm:pb-0">
 
       {/* ── global background ─────────────────────────────────────────── */}
       <div className="pointer-events-none fixed inset-0 -z-10">
@@ -465,6 +465,30 @@ export default function BuildathonPage() {
           <p className={`mt-8 font-display text-2xl font-extrabold sm:text-3xl ${GOLD}`}>#TutedudeBuilds</p>
         </Reveal>
       </section>
+
+      {/* ── mobile floating dashboard button ─────────────────────────── */}
+      <a
+        href="/dashboard"
+        className="fixed bottom-[7rem] right-4 z-50 flex items-center gap-2 rounded-full bg-[#7c3aed] px-4 py-2.5 shadow-[0_6px_24px_-4px_rgba(124,58,237,0.6)] transition-all active:scale-95 sm:hidden"
+      >
+        <Rocket className="h-4 w-4 shrink-0 text-white" />
+        <span className="text-sm font-bold text-white">Go to Dashboard</span>
+      </a>
+
+{/* ── mobile sticky register bar ────────────────────────────────── */}
+      <div className="fixed bottom-0 left-0 right-0 z-50 sm:hidden">
+        <div className="border-t border-white/10 bg-[#150920]/95 backdrop-blur-xl px-4 py-3 flex flex-col items-center gap-2">
+          <span className="flex items-center gap-1.5 text-[0.65rem] font-bold uppercase tracking-[0.18em] text-[#edc168]">
+            <Sparkles className="h-3 w-3" /> Exclusive for Tutedude Learners
+          </span>
+          <motion.button
+            whileTap={{ scale: 0.97 }}
+            className={`w-full max-w-sm rounded-full py-3.5 text-sm font-bold ${GOLD_BTN}`}
+          >
+            Register Now for Free!
+          </motion.button>
+        </div>
+      </div>
 
       {/* ── footer ────────────────────────────────────────────────────── */}
       <footer className="border-t border-white/[0.06] bg-[#0d0514]/70">

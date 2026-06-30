@@ -70,6 +70,7 @@ function PostCard({ code }: { code: string }) {
           src={visible ? `https://www.instagram.com/p/${code}/embed/` : undefined}
           width="300"
           height="500"
+          loading="lazy"
           title={`Instagram reel ${code}`}
           style={{ display: "block", marginTop: -64, width: "100%", border: "none" }}
         />
