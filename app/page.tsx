@@ -100,8 +100,8 @@ export default function Home() {
         <div className="absolute inset-0 bg-[radial-gradient(125%_85%_at_50%_-10%,#7a1e75_0%,#3d1040_42%,#1c0922_100%)]" />
         {/* subtle animated grid */}
         <div className="animate-grid-drift absolute inset-0" />
-        <div className="absolute -right-[6%] top-[10%] h-[52rem] w-[52rem] rounded-full bg-[radial-gradient(circle,rgba(206,46,160,0.55),transparent_70%)] blur-3xl" />
-        <div className="absolute -left-[8%] top-[50%] h-[48rem] w-[48rem] rounded-full bg-[radial-gradient(circle,rgba(124,58,237,0.48),transparent_70%)] blur-3xl" />
+        <div className="absolute -right-[6%] top-[10%] h-[52rem] w-[52rem] rounded-full bg-[radial-gradient(circle,rgba(206,46,160,0.55),transparent_70%)] blur-3xl hidden sm:block" />
+        <div className="absolute -left-[8%] top-[50%] h-[48rem] w-[48rem] rounded-full bg-[radial-gradient(circle,rgba(124,58,237,0.48),transparent_70%)] blur-3xl hidden sm:block" />
       </div>
       {/* ---------------------------------------------------------- navbar --- */}
       <header className="sticky top-0 z-50 border-b border-white/[0.08] bg-[#2b0a30]/75 backdrop-blur-2xl">
