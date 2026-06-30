@@ -44,4 +44,4 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ---
 
-Built with ❤️ by the TuteDude team.
+Built with ❤️ by Rajnish.
