@@ -6,12 +6,14 @@ import { Trophy, GraduationCap, Clapperboard, Share2 } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { useIsMobile } from "@/lib/useIsMobile";
 import { GOLD, GOLD_BTN, CARD } from "@/lib/tokens";
+import { useCtaTarget } from "@/lib/useCta";
 
 const chips = ["Learn", "Create", "Share", "Win"];
 const emberChip = "Win";
 
 export default function SectionClosingCTA() {
   const isMobile = useIsMobile();
+  const cta = useCtaTarget();
 
   return (
     <section className="relative mx-auto max-w-4xl px-5 py-8 text-center sm:px-8 sm:py-20">
@@ -84,10 +86,10 @@ export default function SectionClosingCTA() {
         {/* CTA button */}
         <div className="mt-5 sm:mt-8">
           <a
-            href="/login"
+            href={cta.href}
             className={`inline-block rounded-full px-8 py-4 text-base font-bold sm:px-12 sm:py-4 sm:text-lg ${GOLD_BTN}`}
           >
-            Register Now for Free!
+            {cta.label}
           </a>
         </div>
       </Reveal>

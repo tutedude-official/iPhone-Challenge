@@ -5,6 +5,7 @@ import "./globals.css";
 import MotionProvider from "@/components/providers/MotionProvider";
 import AuthProviderWrapper from "@/components/providers/AuthProvider";
 import SiteChrome from "@/components/SiteChrome";
+import SourceCapture from "@/components/SourceCapture";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -103,6 +104,8 @@ export default function RootLayout({
     >
       <head />
       <body className="min-h-screen bg-canvas text-foreground antialiased">
+        {/* Capture attribution source ASAP, regardless of auth state */}
+        <SourceCapture />
         <AuthProviderWrapper>
           <MotionProvider>
             <SiteChrome>{children}</SiteChrome>

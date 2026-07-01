@@ -18,6 +18,7 @@ import {
 import { RevealGroup, RevealItem } from "@/components/ui/Reveal";
 import { meta } from "@/lib/content";
 import { GOLD, GOLD_BTN } from "@/lib/tokens";
+import { useCtaTarget } from "@/lib/useCta";
 
 import SectionWelcome from "@/components/sections/SectionWelcome";
 import SectionHowItWorks from "@/components/sections/SectionHowItWorks";
@@ -80,6 +81,7 @@ export default function Home() {
   const isMobile = useIsMobile();
   const heroButtonRef = useRef<HTMLAnchorElement>(null);
   const [showStickyBar, setShowStickyBar] = useState(false);
+  const cta = useCtaTarget();
 
   useEffect(() => {
     const el = heroButtonRef.current;
@@ -111,8 +113,8 @@ export default function Home() {
             <span className="text-lg font-bold tracking-tight">{meta.brand}</span>
           </a>
           <div className="flex items-center gap-2 sm:gap-3">
-<a href="/login" className={`whitespace-nowrap rounded-full px-4 py-3 text-xs font-bold sm:px-5 sm:py-2.5 sm:text-sm ${GOLD_BTN}`}>
-              Register Now
+<a href={cta.href} className={`whitespace-nowrap rounded-full px-4 py-3 text-xs font-bold sm:px-5 sm:py-2.5 sm:text-sm ${GOLD_BTN}`}>
+              {cta.isLoggedIn ? cta.label : "Register Now"}
             </a>
           </div>
         </nav>
@@ -136,8 +138,8 @@ export default function Home() {
                 Create and post reels about your learning journey with Tutedude and stand a chance to win a Brand New iPhone 17.
               </motion.p>
 
-            <motion.a href="/login" ref={heroButtonRef} whileHover={isMobile ? {} : { scale: 1.05, y: -2 }} whileTap={isMobile ? {} : { scale: 0.97 }} className={`mt-6 inline-block rounded-full px-6 py-3 text-sm font-bold sm:mt-8 sm:px-10 sm:py-4 sm:text-base ${GOLD_BTN}`}>
-                Register Now for Free!
+            <motion.a href={cta.href} ref={heroButtonRef} whileHover={isMobile ? {} : { scale: 1.05, y: -2 }} whileTap={isMobile ? {} : { scale: 0.97 }} className={`mt-6 inline-block rounded-full px-6 py-3 text-sm font-bold sm:mt-8 sm:px-10 sm:py-4 sm:text-base ${GOLD_BTN}`}>
+                {cta.label}
               </motion.a>
           </div>
 
@@ -231,8 +233,8 @@ export default function Home() {
           <span className="text-[0.6rem] font-bold uppercase tracking-[0.18em] text-[#edc168]">
             ✦ Exclusive for Tutedude Learners
           </span>
-          <a href="/login" className={`block w-full rounded-full py-3.5 text-center text-sm font-bold ${GOLD_BTN}`}>
-            Register Now for Free!
+          <a href={cta.href} className={`block w-full rounded-full py-3.5 text-center text-sm font-bold ${GOLD_BTN}`}>
+            {cta.label}
           </a>
         </div>
       </div>

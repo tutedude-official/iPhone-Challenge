@@ -6,25 +6,32 @@ const MAIN_APP_BASE_URL = process.env.NEXT_PUBLIC_MAIN_APP_BASE_URL || "";
 const SOURCE_STORAGE_KEY = "ipc_source";
 const SESSION_TRACKED_KEY = "ipc_session_tracked";
 
-// ── Source detection (first-touch only, cached in localStorage) ──
-// Rule: if ?utm_source=... is present, use it. Otherwise "direct".
+// ── Source detection ──
+// Priority: 1) URL ?utm_source=...  2) localStorage cache  3) "direct"
+// URL always wins so a fresh campaign link overrides an older cached value.
+// Whenever we find utm_source in the URL, we (re)write it to localStorage
+// so subsequent navigations (which lose the query string) still know the source.
 export function detectSource(): string {
   if (typeof window === "undefined") return "direct";
 
-  // Return cached source if already detected
+  // 1) URL takes priority
+  try {
+    const utm = new URLSearchParams(window.location.search).get("utm_source");
+    if (utm && utm.trim()) {
+      const src = utm.trim().toLowerCase();
+      localStorage.setItem(SOURCE_STORAGE_KEY, src);
+      return src;
+    }
+  } catch {
+    // ignore and fall through
+  }
+
+  // 2) localStorage fallback (from a previous visit in this browser)
   const cached = localStorage.getItem(SOURCE_STORAGE_KEY);
   if (cached) return cached;
 
-  let src = "direct";
-  try {
-    const utm = new URLSearchParams(window.location.search).get("utm_source");
-    if (utm && utm.trim()) src = utm.trim().toLowerCase();
-  } catch {
-    src = "direct";
-  }
-
-  localStorage.setItem(SOURCE_STORAGE_KEY, src);
-  return src;
+  // 3) Default
+  return "direct";
 }
 
 // ── Track a visit (once per session per page) ──
