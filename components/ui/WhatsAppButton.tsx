@@ -3,7 +3,7 @@
 import { MessageCircle } from "lucide-react";
 
 const WHATSAPP_NUMBER = "917999749959";
-const WHATSAPP_MSG = "Hi, I have a query related to the iPhone Challenge.";
+const WHATSAPP_MSG = "Hi, I have a query related to the iPhone Contest.";
 const WHATSAPP_HREF = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MSG)}`;
 
 export { WHATSAPP_HREF };

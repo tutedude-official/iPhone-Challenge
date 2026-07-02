@@ -70,11 +70,11 @@ export default function SectionWhoCanJoin() {
       <Reveal direction="up">
         <h2 className="text-center font-display text-[clamp(2rem,5vw,3.25rem)] font-extrabold tracking-tight">
           Who Is This{" "}
-          <span className={GOLD}>Challenge For?</span>
+          <span className={GOLD}>Contest For?</span>
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-center text-base leading-relaxed text-white/60">
           Whether you&apos;re just starting your learning journey or already building amazing
-          projects, this challenge is open to every enrolled TuteDude learner and free to join.
+          projects, this contest is open to every enrolled TuteDude learner and free to join.
         </p>
       </Reveal>
 

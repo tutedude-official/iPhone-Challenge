@@ -8,7 +8,7 @@ const doItems = [
   "Create original content.",
   "Share authentic experiences. Don't force promotional content.",
   "Keep it respectful and positive.",
-  "Tag @tutedudeofficial and use hashtag #TutedudeiPhoneChallenge in every reel.",
+  "Tag @tutedudeofficial and use hashtag #TutedudeiPhoneContest in every reel.",
   "Post only between 1 July and 31 July.",
   "Have fun and be creative.",
 ];

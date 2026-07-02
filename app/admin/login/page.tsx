@@ -56,7 +56,7 @@ export default function AdminLoginPage() {
           </div>
           <h1 className={`font-display text-2xl font-extrabold ${GOLD}`}>Admin Access</h1>
           <p className="text-center text-sm text-white/60">
-            iPhone Challenge Analytics — Restricted
+            iPhone Contest Analytics — Restricted
           </p>
         </div>
 

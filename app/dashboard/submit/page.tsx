@@ -232,7 +232,7 @@ export default function SubmitReelPage() {
               Reel Submitted!
             </h1>
             <p className="mt-4 text-sm font-semibold leading-relaxed text-white/70">
-              Your reel has been successfully submitted for the TuteDude iPhone Challenge.
+              Your reel has been successfully submitted for the TuteDude iPhone Contest.
               If you submit another reel later, only your latest submission will be considered.
             </p>
             <div className="mt-8 flex gap-4">
@@ -285,7 +285,7 @@ export default function SubmitReelPage() {
             Reel Submission Form
           </h1>
           <p className="mt-2 text-sm font-semibold text-white/60">
-            You&rsquo;re one step away from the TuteDude iPhone Challenge!
+            You&rsquo;re one step away from the TuteDude iPhone Contest!
           </p>
         </m.div>
 
@@ -391,7 +391,7 @@ export default function SubmitReelPage() {
               label="Instagram Reel Link"
               required
               icon={<Link2 className="h-4 w-4" />}
-              hint="Make sure your reel is public before submitting. Tag @tutedudeofficial and use #TutedudeiPhoneChallenge"
+              hint="Make sure your reel is public before submitting. Tag @tutedudeofficial and use #TutedudeiPhoneContest"
             >
               <input
                 type="url"
@@ -412,7 +412,7 @@ export default function SubmitReelPage() {
               <div className="space-y-3">
                 {[
                   { key: "taggedTutedude" as const, label: "I have tagged @tutedudeofficial in my reel." },
-                  { key: "usedHashtag" as const, label: "I have used the hashtag #TuteDudeiPhoneChallenge" },
+                  { key: "usedHashtag" as const, label: "I have used the hashtag #TuteDudeiPhoneContest" },
                   { key: "originalContent" as const, label: "My reel is original and created by me." },
                   { key: "latestSubmissionOnly" as const, label: "I understand that if I submit another reel later, only my latest submission will be considered for judging." },
                 ].map(({ key, label }) => (
@@ -434,15 +434,15 @@ export default function SubmitReelPage() {
 
             {/* Experience */}
             <FormField
-              label="Please share your experience regarding iPhone Challenge"
+              label="Please share your experience regarding iPhone Contest"
               icon={<MessageSquare className="h-4 w-4" />}
-              hint="Feel free to share any other challenge ideas as well. If our team likes them, we'll definitely plan something around them."
+              hint="Feel free to share any other contest ideas as well. If our team likes them, we'll definitely plan something around them."
             >
               <textarea
                 name="experience"
                 value={formData.experience}
                 onChange={handleInputChange}
-                placeholder="Share your experience, thoughts, or challenge ideas..."
+                placeholder="Share your experience, thoughts, or contest ideas..."
                 rows={4}
                 className="form-input resize-none"
               />
@@ -473,7 +473,7 @@ export default function SubmitReelPage() {
                   className="mt-0.5 h-4 w-4 shrink-0 accent-[#edc168]"
                 />
                 <span className="text-sm text-white/75">
-                  I am allowing Tutedude to use this video for marketing, promotion, and future challenge activities.{" "}
+                  I am allowing Tutedude to use this video for marketing, promotion, and future contest activities.{" "}
                   <span className="text-red-400">*</span>
                 </span>
               </label>
@@ -559,7 +559,7 @@ export default function SubmitReelPage() {
             </h2>
             <p className="mt-3 max-w-xs text-sm font-semibold text-white/70">
               Before you submit your reel, confirm that you&rsquo;re officially
-              participating in the Tutedude iPhone Challenge.
+              participating in the Tutedude iPhone Contest.
             </p>
             <button
               onClick={handleModalRegister}

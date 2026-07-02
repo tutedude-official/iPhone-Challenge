@@ -83,7 +83,7 @@ export default function NotEnrolledPage() {
 
             {/* description */}
             <p className="mt-4 max-w-sm text-sm font-semibold leading-relaxed text-white/65 sm:text-base">
-              The <strong className="text-white/90">Tutedude iPhone Challenge</strong> is open only to students who are currently enrolled in a Tutedude course.
+              The <strong className="text-white/90">Tutedude iPhone Contest</strong> is open only to students who are currently enrolled in a Tutedude course.
             </p>
 
             {/* info cards */}
@@ -91,7 +91,7 @@ export default function NotEnrolledPage() {
               <div className="rounded-xl border border-[#edc168]/20 bg-[#edc168]/[0.06] p-4">
                 <p className="text-xs font-bold uppercase tracking-widest text-[#edc168]">How to join</p>
                 <p className="mt-1.5 text-sm font-medium text-white/70">
-                  Enroll in any Tutedude course to become eligible for the challenge.
+                  Enroll in any Tutedude course to become eligible for the contest.
                 </p>
               </div>
               <div className="rounded-xl border border-[#edc168]/20 bg-[#edc168]/[0.06] p-4">

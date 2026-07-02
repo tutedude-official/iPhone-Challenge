@@ -126,7 +126,7 @@ const STARS = [
 
 const CHECKLIST: React.ReactNode[] = [
   "Posting random reel or videos will lead to instant disqualification.",
-  <span key="tag">Tagged <strong className="text-[#edc168]">@tutedudeofficial</strong> and used <strong className="text-[#edc168]">#TutedudeiPhoneChallenge</strong></span>,
+  <span key="tag">Tagged <strong className="text-[#edc168]">@tutedudeofficial</strong> and used <strong className="text-[#edc168]">#TutedudeiPhoneContest</strong></span>,
   "You just have to create one reel for participating.",
   "Keep your Instagram profile public.",
 ];
@@ -320,7 +320,7 @@ export default function DashboardPage() {
               className="mt-7 flex w-full flex-col items-center lg:items-start"
             >
               <p className="mb-3 text-[0.65rem] font-bold uppercase tracking-[0.18em] text-white/50">
-                {phase === "live" ? "⏳ Challenge Ends In" : "🎉 Challenge Has Ended"}
+                {phase === "live" ? "⏳ Contest Ends In" : "🎉 Contest Has Ended"}
               </p>
 
               {phase === "ended" ? (
@@ -340,7 +340,7 @@ export default function DashboardPage() {
               {/* progress bar */}
               <div className="mt-6 w-full max-w-xs lg:max-w-sm">
                 <div className="mb-2 flex items-center justify-between">
-                  <span className="text-[0.65rem] font-bold uppercase tracking-widest text-white/45">Challenge Progress</span>
+                  <span className="text-[0.65rem] font-bold uppercase tracking-widest text-white/45">Contest Progress</span>
                   <span className="text-[0.65rem] font-bold text-[#edc168]">{daysLeft} days left</span>
                 </div>
                 <div className="relative h-4 w-full">
@@ -481,7 +481,7 @@ export default function DashboardPage() {
             className="flex flex-col items-center"
           >
             <p className="mb-8 text-[0.65rem] font-bold uppercase tracking-[0.22em] text-white/50">
-              {phase === "live" ? "Challenge Ends In" : "Challenge Has Ended"}
+              {phase === "live" ? "Contest Ends In" : "Contest Has Ended"}
             </p>
 
             {phase === "ended" ? (
@@ -503,7 +503,7 @@ export default function DashboardPage() {
             )}
 
             <p className="mt-8 text-sm font-semibold text-white/40">
-              {phase === "live" ? "Challenge closes 31 July 2026 · Keep creating!" : "Thank you for participating!"}
+              {phase === "live" ? "Contest closes 31 July 2026 · Keep creating!" : "Thank you for participating!"}
             </p>
           </m.div>
         </div>
@@ -515,7 +515,7 @@ export default function DashboardPage() {
           <Image src="/tutedudelogo.webp" alt="Tutedude" width={22} height={22} className="opacity-70" />
           <span className="text-sm font-bold opacity-70">Tutedude</span>
         </div>
-        <p className="text-xs text-white/35">© {new Date().getFullYear()} Tutedude · iPhone Challenge Dashboard</p>
+        <p className="text-xs text-white/35">© {new Date().getFullYear()} Tutedude · iPhone Contest Dashboard</p>
       </footer>
 
       {/* ── Registration success modal ── */}
@@ -531,7 +531,7 @@ export default function DashboardPage() {
             You&rsquo;re In! 🎉
           </h2>
           <p className="mt-3 max-w-xs text-sm font-semibold text-white/70">
-            You&rsquo;ve successfully registered for the Tutedude iPhone Challenge.
+            You&rsquo;ve successfully registered for the Tutedude iPhone Contest.
             Now go create your reel and submit it before 31 July!
           </p>
           <div className="mt-6 flex flex-col gap-2 sm:flex-row">

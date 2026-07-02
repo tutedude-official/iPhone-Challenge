@@ -17,16 +17,15 @@ export default function SectionWelcome() {
       <div className="section-grid" />
       <Reveal direction="up">
         <h2 className="font-display text-[clamp(2rem,5vw,3.25rem)] font-extrabold tracking-tight">
-          Create a reel about your{" "}
-          <span className={GOLD}>learning experience</span> and win an{" "}
-          <span className={GOLD}>iPhone 17</span>
+          Welcome to{" "}
+          <span className={GOLD}>Tutedude iPhone Contest</span>
         </h2>
         <p className="mx-auto mt-4 max-w-xl text-base italic text-white/60">
           You&apos;re not here to sell. You&apos;re here to share your journey.
         </p>
         <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white/70">
           Whether you&apos;re learning GenAI, Python, Data Analytics, Video Editing, Graphic Design,
-          Cybersecurity, Performance Marketing or any other course through TuteDude, this challenge
+          Cybersecurity, Performance Marketing or any other course through TuteDude, this contest
           is your opportunity to showcase your progress, projects and learning journey.
         </p>
       </Reveal>

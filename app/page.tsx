@@ -44,8 +44,8 @@ const jsonLd = {
     },
     {
       "@type": "Event",
-      name: "Tutedude iPhone Challenge — Win iPhone 17 by Posting Instagram Reels",
-      description: "The Tutedude iPhone Challenge is an Instagram Reel contest where enrolled TuteDude students post reels about their learning journey and win an iPhone 17 worth ₹82,900. This is NOT a refund challenge or a fee-waiver program. It is a social media content challenge where the best reel wins a brand new iPhone 17. Post your reel on Instagram between July 1 and July 31, 2026, tag @tutedudeofficial, use #TutedudeiPhoneChallenge, and submit on the dashboard to enter.",
+      name: "Tutedude iPhone Contest — Win iPhone 17 by Posting Instagram Reels",
+      description: "The Tutedude iPhone Contest is an Instagram Reel contest where enrolled TuteDude students post reels about their learning journey and win an iPhone 17 worth ₹82,900. This is NOT a refund contest or a fee-waiver program. It is a social media content contest where the best reel wins a brand new iPhone 17. Post your reel on Instagram between July 1 and July 31, 2026, tag @tutedudeofficial, use #TutedudeiPhoneContest, and submit on the dashboard to enter.",
       startDate: "2026-07-01",
       endDate: "2026-07-31",
       eventStatus: "https://schema.org/EventScheduled",
@@ -56,21 +56,21 @@ const jsonLd = {
       prize: "iPhone 17 worth ₹82,900",
       url: "https://tutedude-iphone-challenge.pages.dev",
       image: "https://tutedude-iphone-challenge.pages.dev/opengraph-image",
-      keywords: "Tutedude iPhone Challenge, Instagram Reel Challenge India, Win iPhone 17, TutedudeiPhoneChallenge",
+      keywords: "Tutedude iPhone Contest, Instagram Reel Contest India, Win iPhone 17, TutedudeiPhoneContest",
     },
     {
       "@type": "FAQPage",
       mainEntity: [
-        { "@type": "Question", name: "Tutedude iPhone Challenge kya hai?", acceptedAnswer: { "@type": "Answer", text: "Tutedude iPhone Challenge ek Instagram Reel contest hai jisme TuteDude ke enrolled students apni learning journey ke baare mein Instagram Reels banate hain aur best reel wale ko ek brand new iPhone 17 worth ₹82,900 milta hai. Yeh koi fee refund program nahi hai — yeh ek social media content challenge hai." } },
-        { "@type": "Question", name: "What is the Tutedude iPhone Challenge?", acceptedAnswer: { "@type": "Answer", text: "The Tutedude iPhone Challenge is an Instagram Reel contest organized by TuteDude. Enrolled students create and post Instagram Reels about their learning journey with TuteDude between July 1–31, 2026. The best reel wins a brand new iPhone 17 worth ₹82,900. It is completely free to enter and is NOT related to the TuteDude refund or fee-waiver challenge." } },
-        { "@type": "Question", name: "How to participate in Tutedude iPhone Challenge?", acceptedAnswer: { "@type": "Answer", text: "To participate: 1) Create an Instagram Reel about your TuteDude learning journey. 2) Post it between July 1–31, 2026. 3) Tag @tutedudeofficial in your reel. 4) Use hashtag #TutedudeiPhoneChallenge. 5) Submit your reel link on the TuteDude challenge dashboard. That's it — you're entered to win an iPhone 17." } },
-        { "@type": "Question", name: "What is the prize for Tutedude iPhone Challenge?", acceptedAnswer: { "@type": "Answer", text: "The grand prize is a brand new iPhone 17 worth ₹82,900. Additional prizes include TuteDude course vouchers and merchandise." } },
-        { "@type": "Question", name: "Is Tutedude iPhone Challenge free to enter?", acceptedAnswer: { "@type": "Answer", text: "Yes, the Tutedude iPhone Challenge is completely free to enter for all enrolled TuteDude students. There is no registration fee." } },
-        { "@type": "Question", name: "Who can participate in Tutedude iPhone Challenge?", acceptedAnswer: { "@type": "Answer", text: "Any student enrolled in any TuteDude course can participate. It is open to learners of all courses and skill levels." } },
-        { "@type": "Question", name: "What kind of reels can I create for Tutedude iPhone Challenge?", acceptedAnswer: { "@type": "Answer", text: "Any reel that showcases your TuteDude learning journey — projects you built, skills you learned, tips you discovered, AI tools you used, or your progress story. Faceless videos, AI-generated content, screen recordings, and voiceovers are all accepted." } },
-        { "@type": "Question", name: "When does the Tutedude iPhone Challenge end?", acceptedAnswer: { "@type": "Answer", text: "The Tutedude iPhone Challenge runs from July 1 to July 31, 2026. All reels must be posted on Instagram within this period." } },
-        { "@type": "Question", name: "How will the winner of Tutedude iPhone Challenge be selected?", acceptedAnswer: { "@type": "Answer", text: "Winners are selected based on creativity, content quality, relevance to the learning journey, and overall reel performance. Follower count does not matter — a small account can win." } },
-        { "@type": "Question", name: "What hashtag to use for Tutedude iPhone Challenge?", acceptedAnswer: { "@type": "Answer", text: "Use #TutedudeiPhoneChallenge on every reel and tag @tutedudeofficial to make sure your entry is counted." } },
+        { "@type": "Question", name: "Tutedude iPhone Contest kya hai?", acceptedAnswer: { "@type": "Answer", text: "Tutedude iPhone Contest ek Instagram Reel contest hai jisme TuteDude ke enrolled students apni learning journey ke baare mein Instagram Reels banate hain aur best reel wale ko ek brand new iPhone 17 worth ₹82,900 milta hai. Yeh koi fee refund program nahi hai — yeh ek social media content contest hai." } },
+        { "@type": "Question", name: "What is the Tutedude iPhone Contest?", acceptedAnswer: { "@type": "Answer", text: "The Tutedude iPhone Contest is an Instagram Reel contest organized by TuteDude. Enrolled students create and post Instagram Reels about their learning journey with TuteDude between July 1–31, 2026. The best reel wins a brand new iPhone 17 worth ₹82,900. It is completely free to enter and is NOT related to the TuteDude refund or fee-waiver contest." } },
+        { "@type": "Question", name: "How to participate in Tutedude iPhone Contest?", acceptedAnswer: { "@type": "Answer", text: "To participate: 1) Create an Instagram Reel about your TuteDude learning journey. 2) Post it between July 1–31, 2026. 3) Tag @tutedudeofficial in your reel. 4) Use hashtag #TutedudeiPhoneContest. 5) Submit your reel link on the TuteDude contest dashboard. That's it — you're entered to win an iPhone 17." } },
+        { "@type": "Question", name: "What is the prize for Tutedude iPhone Contest?", acceptedAnswer: { "@type": "Answer", text: "The grand prize is a brand new iPhone 17 worth ₹82,900. Additional prizes include TuteDude course vouchers and merchandise." } },
+        { "@type": "Question", name: "Is Tutedude iPhone Contest free to enter?", acceptedAnswer: { "@type": "Answer", text: "Yes, the Tutedude iPhone Contest is completely free to enter for all enrolled TuteDude students. There is no registration fee." } },
+        { "@type": "Question", name: "Who can participate in Tutedude iPhone Contest?", acceptedAnswer: { "@type": "Answer", text: "Any student enrolled in any TuteDude course can participate. It is open to learners of all courses and skill levels." } },
+        { "@type": "Question", name: "What kind of reels can I create for Tutedude iPhone Contest?", acceptedAnswer: { "@type": "Answer", text: "Any reel that showcases your TuteDude learning journey — projects you built, skills you learned, tips you discovered, AI tools you used, or your progress story. Faceless videos, AI-generated content, screen recordings, and voiceovers are all accepted." } },
+        { "@type": "Question", name: "When does the Tutedude iPhone Contest end?", acceptedAnswer: { "@type": "Answer", text: "The Tutedude iPhone Contest runs from July 1 to July 31, 2026. All reels must be posted on Instagram within this period." } },
+        { "@type": "Question", name: "How will the winner of Tutedude iPhone Contest be selected?", acceptedAnswer: { "@type": "Answer", text: "Winners are selected based on creativity, content quality, relevance to the learning journey, and overall reel performance. Follower count does not matter — a small account can win." } },
+        { "@type": "Question", name: "What hashtag to use for Tutedude iPhone Contest?", acceptedAnswer: { "@type": "Answer", text: "Use #TutedudeiPhoneContest on every reel and tag @tutedudeofficial to make sure your entry is counted." } },
       ],
     },
   ],
@@ -129,14 +129,12 @@ export default function Home() {
 
           {/* ---- LEFT: text ---- */}
           <div className="flex w-full flex-col items-center lg:flex-1 lg:items-start">
-            <motion.h1 initial={isMobile ? false : { y: 24 }} animate={isMobile ? {} : { y: 0 }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}>
-                <span className="block font-display text-[clamp(1.1rem,4vw,2.2rem)] font-extrabold leading-tight tracking-tight text-white/80">{meta.brand}</span>
-                <span className={`block pb-2 font-display text-[clamp(2.8rem,12vw,6.5rem)] font-extrabold leading-[0.95] tracking-tight ${GOLD}`}>iPhone<br />Challenge<sup className="align-super text-[0.28em] font-bold">™</sup></span>
+            <motion.h1 initial={isMobile ? false : { y: 24 }} animate={isMobile ? {} : { y: 0 }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} className="font-display text-[clamp(1.8rem,4.5vw,3.5rem)] font-extrabold leading-[1.15] tracking-tight">
+                <span className="text-white">Create a reel about your </span>
+                <span className={GOLD}>learning experience</span>
+                <span className="text-white"> and win an </span>
+                <span className={GOLD}>iPhone 17</span>
               </motion.h1>
-
-            <motion.p initial={isMobile ? false : { y: 20 }} animate={isMobile ? {} : { y: 0 }} transition={{ delay: 0.25, duration: 0.7 }} className="mt-4 max-w-xs text-sm font-medium leading-relaxed text-white/70 sm:max-w-md sm:text-base">
-                Create and post reels about your learning journey with Tutedude and stand a chance to win a Brand New iPhone 17.
-              </motion.p>
 
             <motion.a href={cta.href} ref={heroButtonRef} whileHover={isMobile ? {} : { scale: 1.05, y: -2 }} whileTap={isMobile ? {} : { scale: 0.97 }} className={`mt-6 inline-block rounded-full px-6 py-3 text-sm font-bold sm:mt-8 sm:px-10 sm:py-4 sm:text-base ${GOLD_BTN}`}>
                 {cta.label}
@@ -263,7 +261,7 @@ export default function Home() {
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-3 border-b border-white/[0.06] px-5 pb-10 pt-12 text-center sm:px-8">
           <Image src="/tutedudelogo.webp" alt="Tutedude" width={44} height={44} className="opacity-90" />
           <span className="font-display text-xl font-extrabold tracking-tight text-white">Tutedude</span>
-          <p className="max-w-xs text-xs text-white/55">Learn · Create · Share · Win — Tutedude iPhone Challenge 2026</p>
+          <p className="max-w-xs text-xs text-white/55">Learn · Create · Share · Win — Tutedude iPhone Contest 2026</p>
         </div>
 
         <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 sm:grid-cols-2 sm:px-8 lg:grid-cols-4">

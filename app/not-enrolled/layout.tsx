@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Not Enrolled · Tutedude iPhone Challenge",
-  description: "This challenge is exclusive to enrolled Tutedude students.",
+  title: "Not Enrolled · Tutedude iPhone Contest",
+  description: "This contest is exclusive to enrolled Tutedude students.",
   robots: { index: false, follow: false },
 };
 

@@ -22,28 +22,28 @@ const sora = Sora({
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL || "https://tutedude-iphone-challenge.pages.dev";
 
-const SITE_TITLE = "Win iPhone 17 – Tutedude Instagram Reel Challenge 2026";
+const SITE_TITLE = "Win iPhone 17 – Tutedude Instagram Reel Contest 2026";
 const SITE_DESC =
-  "Join the Tutedude iPhone Challenge — create Instagram Reels about your learning journey and win an iPhone 17 worth ₹82,900. Free to enter. Open to all TuteDude students. Post July 1–31, 2026.";
+  "Join the Tutedude iPhone Contest — create Instagram Reels about your learning journey and win an iPhone 17 worth ₹82,900. Free to enter. Open to all TuteDude students. Post July 1–31, 2026.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: SITE_TITLE,
-    template: "%s · Tutedude iPhone Challenge",
+    template: "%s · Tutedude iPhone Contest",
   },
   description: SITE_DESC,
   keywords: [
-    "Tutedude iPhone Challenge",
-    "Instagram Reel Challenge India",
+    "Tutedude iPhone Contest",
+    "Instagram Reel Contest India",
     "Win iPhone 17 India",
-    "Instagram Challenge Win Prize",
-    "TutedudeiPhoneChallenge",
-    "Instagram Learning Challenge",
+    "Instagram Contest Win Prize",
+    "TutedudeiPhoneContest",
+    "Instagram Learning Contest",
     "Win iPhone Instagram India 2026",
     "Tutedude Contest",
     "Create Reels Win iPhone",
-    "Student Instagram Challenge India",
+    "Student Instagram Contest India",
     "Free iPhone Contest India",
     "Tutedude",
     "Instagram Reels Competition",
@@ -61,14 +61,14 @@ export const metadata: Metadata = {
     description: SITE_DESC,
     type: "website",
     url: "/",
-    siteName: "Tutedude iPhone Challenge",
+    siteName: "Tutedude iPhone Contest",
     locale: "en_IN",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Tutedude iPhone Challenge – Win iPhone 17 worth ₹82,900",
+        alt: "Tutedude iPhone Contest – Win iPhone 17 worth ₹82,900",
       },
     ],
   },

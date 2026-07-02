@@ -41,7 +41,7 @@ const items: FAQItem[] = [
     q: "How will the winner be selected?",
     a: "BY QUALITY",
     detail:
-      "Winners will be chosen based on creativity, content quality, relevance to the challenge, and overall performance of the reel.",
+      "Winners will be chosen based on creativity, content quality, relevance to the contest, and overall performance of the reel.",
   },
   {
     q: "Can I use trending music?",
@@ -52,13 +52,13 @@ const items: FAQItem[] = [
     q: "What happens after I submit my reel?",
     a: "REVIEWED",
     detail:
-      "Once submitted through your dashboard, your reel will be reviewed and considered for the challenge.",
+      "Once submitted through your dashboard, your reel will be reviewed and considered for the contest.",
   },
   {
     q: "What can lead to disqualification?",
     a: "IMPORTANT",
     detail:
-      "Copied content, fake engagement, misleading claims, offensive content, or failure to follow the challenge guidelines may result in disqualification.",
+      "Copied content, fake engagement, misleading claims, offensive content, or failure to follow the contest guidelines may result in disqualification.",
   },
   {
     q: "Can I participate if my account has very few followers?",
@@ -70,12 +70,6 @@ const items: FAQItem[] = [
     a: "GO PUBLIC",
     detail:
       "Your account needs to be public for your entry to be considered. You can either make your account public or create a new profile.",
-  },
-  {
-    q: "Can I post more than 1 reel?",
-    a: "YES",
-    detail:
-      "Of course! The more the merrier. Post multiple reels throughout the challenge. Make sure you submit each one on the dashboard — your most recent submission will be reviewed by our team.",
   },
 ];
 

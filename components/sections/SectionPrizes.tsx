@@ -8,11 +8,13 @@ import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
 import { prizes } from "@/lib/content";
 import { useIsMobile } from "@/lib/useIsMobile";
 import { GOLD, CARD } from "@/lib/tokens";
+import { useCtaTarget } from "@/lib/useCta";
 
 const prizeIcons: LucideIcon[] = [Sparkles, Star];
 
 export default function SectionPrizes() {
   const isMobile = useIsMobile();
+  const cta = useCtaTarget();
 
   return (
     <>
@@ -88,11 +90,12 @@ export default function SectionPrizes() {
                 <p className="mt-2 max-w-md text-sm font-medium leading-relaxed text-[#3a0f33]/80 sm:mt-4">
                   {prizes.grand.description}
                 </p>
-                <button
+                <a
+                  href={cta.href}
                   className={`mt-5 hidden rounded-full px-7 py-3 text-sm font-bold text-white transition-transform hover:-translate-y-0.5 bg-[#3a0f33] sm:mt-7 sm:inline-flex`}
                 >
-                  Register Now for Free!
-                </button>
+                  {cta.label}
+                </a>
               </div>
 
               {/* iphone image */}

@@ -227,7 +227,7 @@ export default function AdminDashboardPage() {
             </div>
             <div>
               <h1 className="font-display text-2xl font-extrabold bg-gradient-to-r from-[#f8e3a6] via-[#edc168] to-[#d99a2b] bg-clip-text text-transparent sm:text-3xl">
-                iPhone Challenge Analytics
+                iPhone Contest Analytics
               </h1>
               <p className="mt-1 text-xs text-white/50 sm:text-sm">
                 Signed in as{" "}

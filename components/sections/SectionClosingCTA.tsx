@@ -80,7 +80,7 @@ export default function SectionClosingCTA() {
 
         {/* hashtag */}
         <p className={`mt-6 font-display text-2xl font-extrabold sm:mt-10 sm:text-4xl ${GOLD}`}>
-          #TutedudeiPhoneChallenge
+          #TutedudeiPhoneContest
         </p>
 
         {/* CTA button */}

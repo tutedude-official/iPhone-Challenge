@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const dynamic = "force-static";
-export const alt ="Tutedude iPhone Challenge – Win iPhone 17 worth ₹82,900";
+export const alt ="Tutedude iPhone Contest – Win iPhone 17 worth ₹82,900";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -54,7 +54,7 @@ export default function OGImage() {
         {/* brand */}
         <div style={{ position: "absolute", bottom: 32, display: "flex", alignItems: "center", gap: 12 }}>
           <span style={{ fontSize: 20, fontWeight: 700, color: "rgba(255,255,255,0.5)", letterSpacing: 1 }}>
-            #TutedudeiPhoneChallenge
+            #TutedudeiPhoneContest
           </span>
         </div>
       </div>

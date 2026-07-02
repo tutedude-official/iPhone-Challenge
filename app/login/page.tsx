@@ -119,7 +119,7 @@ export default function LoginPage() {
                   Welcome Back
                 </h1>
                 <p className="mt-1.5 text-sm text-white/50">
-                  Sign in to access your Challenge Dashboard
+                  Sign in to access your Contest Dashboard
                 </p>
               </div>
 
@@ -225,7 +225,7 @@ export default function LoginPage() {
 
               {/* sign up link */}
               <p className="mt-6 text-center text-xs text-white/35">
-                New to the challenge?{" "}
+                New to the contest?{" "}
                 <a href="https://www.tutedude.com" target="_blank" rel="noopener noreferrer" className="font-semibold text-[#edc168] transition-opacity hover:opacity-75">
                   Register here
                 </a>

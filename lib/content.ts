@@ -7,10 +7,10 @@
 export const meta = {
   edition: "2026 EDITION",
   brand: "Tutedude",
-  challengeTag: "Tutedude iPhone Challenge",
-  title: ["Tutedude", "iPhone", "Challenge"],
+  challengeTag: "Tutedude iPhone Contest",
+  title: ["Tutedude", "iPhone", "Contest"],
   tagline: ["Learn.", "Create.", "Share.", "Win."],
-  hashtag: "#TutedudeiPhoneChallenge",
+  hashtag: "#TutedudeiPhoneContest",
   heroChips: ["Win an iPhone", "Get Featured", "Build Your Brand"],
   phone: {
     badge: "+1 iPhone",
@@ -42,7 +42,7 @@ export const welcome = {
     "Win exciting rewards",
   ],
   snapshot: {
-    title: "CHALLENGE SNAPSHOT",
+    title: "CONTEST SNAPSHOT",
     rows: [
       { label: "DURATION", value: "July 1 – July 31" },
       { label: "PLATFORM", value: "Instagram Reels" },
@@ -96,7 +96,7 @@ export const howItWorks = {
     {
       n: "1",
       title: "Register",
-      description: "Sign up for the iPhone Challenge in seconds.",
+      description: "Sign up for the iPhone Contest in seconds.",
     },
     {
       n: "2",
@@ -113,7 +113,7 @@ export const howItWorks = {
       title: "Tag @Tutedude",
       titleAccent: "@Tutedude",
       description:
-        "Tag us & use the #30DayTutedudechallenge hashtag in every reel.",
+        "Tag us & use the #30DayTutedudecontest hashtag in every reel.",
     },
     {
       n: "5",
@@ -210,10 +210,10 @@ export const voice = {
     "Certifications",
     "Placement support",
     "Community",
-    "Refund challenge",
+    "Refund contest",
     "Career growth",
   ],
-  emberTopic: "Refund challenge",
+  emberTopic: "Refund contest",
   quote: {
     lead: "People connect with",
     accent: "stories,",
@@ -408,8 +408,8 @@ export const faq = {
     { q: "Can I use AI?", a: "YES", detail: "Yes, AI tools are fully allowed to enhance and create your content." },
     { q: "Can I create faceless content?", a: "YES", detail: "Voiceovers, screen recordings, and text-based reels all qualify — no face required." },
     { q: "Do I need professional equipment?", a: "NO", detail: "Your smartphone is all you need — great content beats expensive gear every time." },
-    { q: "Can I post more than 10 reels?", a: "YES", detail: "Post as many as you like; we score your top 10 reels from the challenge period." },
-    { q: "Can I repost old videos?", a: "NO", detail: "All entries must be original content created and posted during the challenge window." },
+    { q: "Can I post more than 10 reels?", a: "YES", detail: "Post as many as you like; we score your top 10 reels from the contest period." },
+    { q: "Can I repost old videos?", a: "NO", detail: "All entries must be original content created and posted during the contest window." },
     { q: "Can I submit after July 31?", a: "NO", detail: "Entries close on July 31, 2026 at midnight IST — no late submissions accepted." },
   ],
   footnote:
@@ -426,7 +426,7 @@ export const closing = {
   titleAccent: "could be you.",
   chips: ["Create", "Learn", "Share", "Win"],
   emberChip: "Win",
-  hashtag: "#TutedudeiPhoneChallenge",
+  hashtag: "#TutedudeiPhoneContest",
 };
 
 export const sections = [
