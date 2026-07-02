@@ -17,8 +17,9 @@ export default function SectionWelcome() {
       <div className="section-grid" />
       <Reveal direction="up">
         <h2 className="font-display text-[clamp(2rem,5vw,3.25rem)] font-extrabold tracking-tight">
-          Welcome to the{" "}
-          <span className={GOLD}>TuteDude iPhone Challenge</span>
+          Create a reel about your{" "}
+          <span className={GOLD}>learning experience</span> and win an{" "}
+          <span className={GOLD}>iPhone 17</span>
         </h2>
         <p className="mx-auto mt-4 max-w-xl text-base italic text-white/60">
           You&apos;re not here to sell. You&apos;re here to share your journey.

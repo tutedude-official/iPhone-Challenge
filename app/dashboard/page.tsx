@@ -10,6 +10,8 @@ import { useRouter } from "next/navigation";
 import { GOLD, GOLD_BTN, CARD } from "@/lib/tokens";
 import { trackVisit, fetchParticipationStatus, registerParticipation } from "@/lib/tracking";
 import { Modal } from "@/components/ui/Modal";
+import WhatsAppButton from "@/components/ui/WhatsAppButton";
+import SectionPeopleParticipating from "@/components/sections/SectionPeopleParticipating";
 
 const CHALLENGE_START = new Date("2026-07-01T00:00:00+05:30").getTime();
 const CHALLENGE_END   = new Date("2026-07-31T23:59:59+05:30").getTime();
@@ -123,10 +125,10 @@ const STARS = [
 ];
 
 const CHECKLIST: React.ReactNode[] = [
-  "Public profile",
+  "Posting random reel or videos will lead to instant disqualification.",
   <span key="tag">Tagged <strong className="text-[#edc168]">@tutedudeofficial</strong> and used <strong className="text-[#edc168]">#TutedudeiPhoneChallenge</strong></span>,
-  "Original content with captions",
-  "Reel is live",
+  "You just have to create one reel for participating.",
+  "Keep your Instagram profile public.",
 ];
 
 export default function DashboardPage() {
@@ -224,7 +226,9 @@ export default function DashboardPage() {
             <Image src="/tutedudelogo.webp" alt="Tutedude" width={30} height={30} />
             <span className="text-lg font-bold tracking-tight">Tutedude</span>
           </a>
-          <div className="flex items-center gap-2.5 rounded-xl border border-white/[0.10] bg-white/[0.05] px-3 py-1.5">
+          <div className="flex items-center gap-2 sm:gap-3">
+            <WhatsAppButton />
+            <div className="flex items-center gap-2.5 rounded-xl border border-white/[0.10] bg-white/[0.05] px-3 py-1.5">
             <div
               className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-extrabold text-white shadow-[0_0_10px_rgba(0,0,0,0.3)]"
               style={{ background: avatarColor(USER_EMAIL) }}
@@ -238,6 +242,7 @@ export default function DashboardPage() {
             >
               Logout
             </button>
+          </div>
           </div>
         </nav>
       </header>
@@ -255,8 +260,9 @@ export default function DashboardPage() {
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="font-display text-[clamp(1.9rem,6.5vw,3.8rem)] font-extrabold leading-[1.1] tracking-tight"
             >
-              Welcome to the{" "}
-              <span className={GOLD}>TuteDude iPhone<br />Challenge! 🚀</span>
+              Create a reel about your{" "}
+              <span className={GOLD}>learning experience</span> and win an{" "}
+              <span className={GOLD}>iPhone 17 🚀</span>
             </m.h1>
 
             <m.div
@@ -265,10 +271,6 @@ export default function DashboardPage() {
               transition={{ delay: 0.2, duration: 0.7 }}
               className="flex flex-col items-center lg:items-start"
             >
-              <p className="mt-3 text-xl font-bold text-white sm:text-2xl">You&rsquo;re officially in!</p>
-              <p className="mt-2 max-w-sm text-sm font-semibold leading-relaxed text-white/75 sm:text-base">
-                Create, share, and submit your reels to get one step closer to winning an iPhone 17.
-              </p>
 
               {/* ── I'm Participating opt-in ── */}
               <div className="mt-5">
@@ -305,9 +307,9 @@ export default function DashboardPage() {
                 <svg className="h-4 w-4 text-pink-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
                 Platform: Instagram
               </div>
-              <div className="flex items-center gap-2 rounded-full border border-white/[0.12] bg-white/[0.06] px-4 py-2 text-sm font-semibold text-white/85">
+              {/* <div className="flex items-center gap-2 rounded-full border border-white/[0.12] bg-white/[0.06] px-4 py-2 text-sm font-semibold text-white/85">
                 <Calendar className="h-4 w-4 text-[#edc168]" /> 1 July – 31 July
-              </div>
+              </div> */}
             </m.div>
 
             {/* countdown + progress */}
@@ -395,6 +397,9 @@ export default function DashboardPage() {
         </div>
       </section>
 
+      {/* ── SEE WHAT OTHER LEARNERS ARE CREATING ── */}
+      <SectionPeopleParticipating />
+
       {/* ── SUBMIT & HANDBOOK ── */}
       <section className="relative mx-auto max-w-6xl px-4 py-6 sm:px-8 sm:py-10">
         <div className="section-grid" />
@@ -423,11 +428,11 @@ export default function DashboardPage() {
                 href="/dashboard/submit"
                 className={`inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-sm font-bold ${GOLD_BTN}`}
               >
-                <Send className="h-4 w-4" /> Submit Your Reel
+                <Send className="h-4 w-4" /> Submit Your Final Reel
               </a>
             </div>
             <p className="mt-3 text-[0.65rem] font-semibold text-white/45">
-              Fill in your details and submit your reel link to complete your entry.
+              One participant one reel.
             </p>
           </m.div>
 
