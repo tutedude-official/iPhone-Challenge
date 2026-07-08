@@ -44,7 +44,7 @@ export default function ReelPlayer({ src }: { src: string }) {
       {/* glowing bg behind the frame */}
       <div className="pointer-events-none absolute left-1/2 top-1/2 -z-10" style={{ transform: "translate(-50%, -50%)", width: "160%", height: "140%", borderRadius: "50%", background: "radial-gradient(ellipse at 50% 50%, rgba(237,193,104,0.55) 0%, rgba(180,60,220,0.22) 45%, transparent 72%)", filter: "blur(36px)" }} />
 
-      <div className="overflow-hidden rounded-2xl border-2 border-[#edc168]/30 bg-[#2b0a30] shadow-[0_8px_40px_-8px_rgba(237,193,104,0.25)]">
+      <div className="aspect-[9/16] overflow-hidden rounded-2xl border-2 border-[#edc168]/30 bg-[#2b0a30] shadow-[0_8px_40px_-8px_rgba(237,193,104,0.25)]" style={{ backgroundImage: "url('/Instagram iPhone 17 cover page.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
 
       <video
         ref={videoRef}
@@ -53,7 +53,7 @@ export default function ReelPlayer({ src }: { src: string }) {
         controls={playing}
         playsInline
         preload="none"
-        className="w-full rounded-2xl"
+        className="h-full w-full rounded-2xl object-cover"
         onPlay={() => setPlaying(true)}
         onPause={() => setPlaying(false)}
         onEnded={() => setPlaying(false)}
