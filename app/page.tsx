@@ -1,6 +1,7 @@
 "use client";
 
 import { useIsMobile } from "@/lib/useIsMobile";
+import ReelPlayer from "@/components/ui/ReelPlayer";
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { m as motion } from "framer-motion";
@@ -141,9 +142,13 @@ export default function Home() {
               </motion.a>
           </div>
 
-          {/* ---- RIGHT: iPhone + price badge ---- */}
+          {/* ---- RIGHT: Featured Video ---- */}
+          <div className="flex shrink-0 items-center justify-center lg:shrink-0">
+            <ReelPlayer src="/TD iphone challenge video 1 (1).mov" />
+          </div>
+
+          {/* ---- RIGHT: iPhone + price badge (commented out) ----
           <div className="flex flex-col items-center gap-4 lg:shrink-0">
-            {/* iPhone — plain div on mobile, floating motion.div on desktop */}
             {(() => {
               const stars = [
                 { top: "-14%", left: "78%",  size: 22, delay: 0,    dur: 2.8, color: "#f8e3a6", glow: true  },
@@ -181,8 +186,8 @@ export default function Home() {
               );
               return <motion.div animate={isMobile ? {} : { y: [0, -14, 0] }} transition={{ repeat: Infinity, duration: 3.8, ease: "easeInOut" }} className="relative isolate">{inner}</motion.div>;
             })()}
-
           </div>
+          ---- */}
         </div>
 
         {/* ── hero stat chips ── */}

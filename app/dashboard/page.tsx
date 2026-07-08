@@ -12,6 +12,7 @@ import { trackVisit, fetchParticipationStatus, registerParticipation } from "@/l
 import { Modal } from "@/components/ui/Modal";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
 import SectionPeopleParticipating from "@/components/sections/SectionPeopleParticipating";
+import ReelPlayer from "@/components/ui/ReelPlayer";
 
 const CHALLENGE_START = new Date("2026-07-01T00:00:00+05:30").getTime();
 const CHALLENGE_END   = new Date("2026-07-31T23:59:59+05:30").getTime();
@@ -367,7 +368,12 @@ export default function DashboardPage() {
             </m.div>
           </div>
 
-          {/* RIGHT: iPhone */}
+          {/* RIGHT: Featured Video */}
+          <div className="flex shrink-0 items-center justify-center">
+            <ReelPlayer src="/TD iphone challenge video 1 (1).mov" />
+          </div>
+
+          {/* RIGHT: iPhone (commented out)
           <div className="flex shrink-0 items-center justify-center">
             <m.div
               animate={{ y: [0, -14, 0] }}
@@ -394,6 +400,7 @@ export default function DashboardPage() {
               </div>
             </m.div>
           </div>
+          */}
         </div>
       </section>
 
